@@ -23,6 +23,10 @@ public class De {
 		return faceDeAvance.get(lancer()).getContenuFace();
 	}
 	
+	public int lancerDeConstruit(){
+		return faceDeConstruit.get(lancer()).getContenuFace();
+	}
+	
 	class DeAvance{
 		
 		public DeAvance(){
@@ -44,6 +48,22 @@ public class De {
 	}
 	
 	class DeConstruit{
+		//0 ne construit pas
+		//1 construit
+		//2 construit paie double
+		//3 construit gratuit
+		public DeConstruit(){
+			Face face1 = new Face(1);
+			Face face2 = new Face(2);
+			Face face3 = new Face(3);
+			Face face0 = new Face(0);
+			faceDeConstruit.add(face0);
+			faceDeConstruit.add(face1);
+			faceDeConstruit.add(face1);
+			faceDeConstruit.add(face1);
+			faceDeConstruit.add(face2);
+			faceDeConstruit.add(face3);
+		}
 		
 	}
 
