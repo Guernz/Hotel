@@ -34,7 +34,8 @@ public class Joueur extends De {
 	}
 	
 	public int seDeplacer(){
-		int res,caseFinale;
+		int res,caseFinale,caseDepart;
+		caseDepart=InterfaceGraphique.joueurs.get(InterfaceGraphique.joueurActif-1).getPosition();
 		int i=0;
 		res=lancerDeAvance();
 		System.out.println("de :"+res);
@@ -48,8 +49,8 @@ public class Joueur extends De {
 				i++;
 			}
 		}
-		if (this.position<=7 && caseFinale>=8 && (InterfaceGraphique.joueurs.size()==2 || InterfaceGraphique.nbJoueur!=2 && InterfaceGraphique.joueurs.size()>2)){
-			this.argentJoueur+=2000;
+		if (caseDepart<=7 && caseFinale>=8){
+			InterfaceGraphique.joueurs.get(InterfaceGraphique.joueurActif-1).setArgentJoueur(InterfaceGraphique.joueurs.get(InterfaceGraphique.joueurActif-1).getArgentJoueur()+2000);
 		}
 		this.position+=caseFinale;
 		if(this.position>=Plateau.nbCase+1){

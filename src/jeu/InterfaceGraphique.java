@@ -12,6 +12,7 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 	private JLabel argentJoueurActuel = new JLabel("");
 	private JLabel labelAchat = new JLabel("Achat");
 	private JLabel labelRachat = new JLabel("Rachat");
+	private JLabel labelConstruire = new JLabel("Construire");
 	private Bouton boutonJouer = new Bouton("Jouer");
 	private Bouton boutonRegle = new Bouton("Règle du jeu");
 	private Bouton boutonLancerDe = new Bouton("Lancer dé");
@@ -38,6 +39,14 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 	private Bouton boutonRachatSafari = new Bouton("Safari");
 	private Bouton boutonRachatTajMahal = new Bouton("TajMahal");
 	private Bouton boutonRachatWaikiki = new Bouton("Waikiki");
+	private Bouton boutonConstruitFujiyama = new Bouton("Fujiyama");
+	private Bouton boutonConstruitBoomerang = new Bouton("Boomerang");
+	private Bouton boutonConstruitEtoile = new Bouton("Etoile");
+	private Bouton boutonConstruitPresident = new Bouton("President");
+	private Bouton boutonConstruitRoyal = new Bouton("Royal");
+	private Bouton boutonConstruitSafari = new Bouton("Safari");
+	private Bouton boutonConstruitTajMahal = new Bouton("TajMahal");
+	private Bouton boutonConstruitWaikiki = new Bouton("Waikiki");
 	private Plateau plateauJeu = new Plateau();
 	private Joueur joueurBleu = new Joueur("Bleu");
 	private Joueur joueurJaune = new Joueur("Jaune");
@@ -53,9 +62,7 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 				   	boutonRoya = false,
 				   	boutonSafa = false,
 				   	boutonTajM = false,
-				   	boutonWaik = false,
-				   	achat = false,
-				   	rachat = false;
+				   	boutonWaik = false;
 	static int 	nbJoueur, 
 				joueurActif = 1;
 	static ArrayList<Joueur> joueurs = new ArrayList<Joueur>();
@@ -102,6 +109,14 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 	    boutonRachatSafari.addActionListener(this);
 	    boutonRachatTajMahal.addActionListener(this);
 	    boutonRachatWaikiki.addActionListener(this);
+	    boutonConstruitFujiyama.addActionListener(this);
+	    boutonConstruitBoomerang.addActionListener(this);
+	    boutonConstruitEtoile.addActionListener(this);
+	    boutonConstruitPresident.addActionListener(this);
+	    boutonConstruitRoyal.addActionListener(this);
+	    boutonConstruitSafari.addActionListener(this);
+	    boutonConstruitTajMahal.addActionListener(this);
+	    boutonConstruitWaikiki.addActionListener(this);
 	    double widthTemp = width*0.85;
 	    double heightTemp = height*0.1;
 	    int margeLargeurBouton = (int) widthTemp;
@@ -117,6 +132,7 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 	    argentJoueurActuel.setBounds(margeLargeurBouton,margeHauteurBouton/4,largeurBouton,hauteurBouton/2);
 	    labelAchat.setBounds(margeLargeurBouton,3*margeHauteurBouton,largeurBouton,hauteurBouton);
 	    labelRachat.setBounds(margeLargeurBouton,5*margeHauteurBouton,largeurBouton,hauteurBouton);
+	    labelConstruire.setBounds(margeLargeurBouton,3*margeHauteurBouton,largeurBouton,hauteurBouton);
 	    boutonJouer.setBounds(margeLargeurBouton,margeHauteurBouton,largeurBouton,hauteurBouton);
 	    boutonRegle.setBounds(margeLargeurBouton,3*margeHauteurBouton,largeurBouton,hauteurBouton);
 	    boutonQuitter.setBounds(margeLargeurBouton,8*margeHauteurBouton,largeurBouton,hauteurBouton);
@@ -140,6 +156,14 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 	    boutonRachatSafari.setBounds(margeLargeurBouton,6*margeHauteurBouton+margeHauteurBouton/2,largeurBouton,hauteurBouton/2);
 	    boutonRachatTajMahal.setBounds(margeLargeurBouton,6*margeHauteurBouton+margeHauteurBouton/2,largeurBouton,hauteurBouton/2);
 	    boutonRachatWaikiki.setBounds(margeLargeurBouton,6*margeHauteurBouton+margeHauteurBouton/2,largeurBouton,hauteurBouton/2);
+	    boutonConstruitBoomerang.setBounds(margeLargeurBouton,4*margeHauteurBouton+margeHauteurBouton/2,largeurBouton,hauteurBouton/2);
+	    boutonConstruitEtoile.setBounds(margeLargeurBouton,4*margeHauteurBouton,largeurBouton,hauteurBouton/2);
+	    boutonConstruitFujiyama.setBounds(margeLargeurBouton,4*margeHauteurBouton,largeurBouton,hauteurBouton/2);
+	    boutonConstruitPresident.setBounds(margeLargeurBouton,4*margeHauteurBouton+margeHauteurBouton/2,largeurBouton,hauteurBouton/2);
+	    boutonConstruitRoyal.setBounds(margeLargeurBouton,4*margeHauteurBouton,largeurBouton,hauteurBouton/2);
+	    boutonConstruitSafari.setBounds(margeLargeurBouton,4*margeHauteurBouton+margeHauteurBouton/2,largeurBouton,hauteurBouton/2);
+	    boutonConstruitTajMahal.setBounds(margeLargeurBouton,4*margeHauteurBouton+margeHauteurBouton/2,largeurBouton,hauteurBouton/2);
+	    boutonConstruitWaikiki.setBounds(margeLargeurBouton,4*margeHauteurBouton+margeHauteurBouton/2,largeurBouton,hauteurBouton/2);
 	    //boutonOK.setBounds(margeLargeurBouton,3*margeHauteurBouton,largeurBouton,hauteurBouton);
 	    //boutonPasOK.setBounds(margeLargeurBouton,5*margeHauteurBouton,largeurBouton,hauteurBouton);
 	    bouton2J.setBounds(margeLargeurBouton,margeHauteurBouton,largeurBouton,hauteurBouton);
@@ -296,7 +320,7 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 					  //constructionGratuite();
 					  break;
 				  case 4:
-					  //permisConstruire();
+					  permisConstruire();
 					  break;
 				  case 5:
 					  achat();
@@ -368,6 +392,38 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 			  boutonRachatHotel("Waikiki");
 		  }
 		  
+		  if(arg0.getSource() == boutonConstruitBoomerang){
+			  boutonConstruitHotel("Boomerang");
+		  }
+		  
+		  if(arg0.getSource() == boutonConstruitFujiyama){
+			  boutonConstruitHotel("Fujiyama");
+		  }
+		  
+		  if(arg0.getSource() == boutonConstruitEtoile){
+			  boutonConstruitHotel("Etoile");
+		  }
+		  
+		  if(arg0.getSource() == boutonConstruitPresident){
+			  boutonConstruitHotel("President");
+		  }
+		  
+		  if(arg0.getSource() == boutonConstruitRoyal){
+			  boutonConstruitHotel("Royal");
+		  }
+		  
+		  if(arg0.getSource() == boutonConstruitSafari){
+			  boutonConstruitHotel("Safari");
+		  }
+		  
+		  if(arg0.getSource() == boutonConstruitTajMahal){
+			  boutonConstruitHotel("TajMahal");
+		  }
+		  
+		  if(arg0.getSource() == boutonConstruitWaikiki){
+			  boutonConstruitHotel("Waikiki");
+		  }
+		  
 		}
 	
 	public void actualiserPosition(){
@@ -433,6 +489,42 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 				System.out.println("Vous êtes chez vous.");
 			}
 		}
+	}
+	
+	public void permisConstruire(){
+		hotelCase = new ArrayList<Hotel>();
+		hotelCase = Hotel.trouveHotel(joueurs.get(joueurActif-1).getPosition(),hotels);
+		for( int i = 0 ; i<hotelCase.size(); i++){
+			if(hotelCase.get(i).joueurProprio == joueurActif){
+				add(labelConstruire);
+				remove(boutonAction);
+				if(hotelCase.get(i).getNom().equals("Fujiyama") && !hotelCase.get(i).getBaseLoisirConstruit()){
+					add(boutonConstruitFujiyama);
+				}
+				if(hotelCase.get(i).getNom().equals("Boomerang") && !hotelCase.get(i).getBaseLoisirConstruit()){
+					add(boutonConstruitBoomerang);
+				}
+				if(hotelCase.get(i).getNom().equals("Etoile") && !hotelCase.get(i).getBaseLoisirConstruit()){
+					add(boutonConstruitEtoile);
+				}
+				if(hotelCase.get(i).getNom().equals("President") && !hotelCase.get(i).getBaseLoisirConstruit()){
+					add(boutonConstruitPresident);
+				}
+				if(hotelCase.get(i).getNom().equals("Royal") && !hotelCase.get(i).getBaseLoisirConstruit()){
+					add(boutonConstruitRoyal);
+				}
+				if(hotelCase.get(i).getNom().equals("Safari") && !hotelCase.get(i).getBaseLoisirConstruit()){
+					add(boutonConstruitSafari);
+				}
+				if(hotelCase.get(i).getNom().equals("TajMahal") && !hotelCase.get(i).getBaseLoisirConstruit()){
+					add(boutonConstruitTajMahal);
+				}
+				if(hotelCase.get(i).getNom().equals("Waikiki") && !hotelCase.get(i).getBaseLoisirConstruit()){
+					add(boutonConstruitWaikiki);
+				}
+			}
+		}
+		setContentPane(panneau);
 	}
 	
 	public void achat(){
@@ -548,6 +640,12 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 		hotel.rachatHotel(joueurActif);
 	}
 	
+	public void boutonConstruitHotel(String nom){
+		clean();
+		Hotel hotel = Hotel.trouveHotel(nom, hotelCase);
+		hotel.construit(joueurActif,nom);
+	}
+	
 	public void clean(){
 		remove(boutonFujiyama);
 		remove(boutonBoomerang);
@@ -567,6 +665,16 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 		remove(boutonRachatWaikiki);
 		remove(labelAchat);
 		remove(labelRachat);
+		remove(labelConstruire);
+		remove(boutonAction);
+		remove(boutonConstruitFujiyama);
+		remove(boutonConstruitBoomerang);
+		remove(boutonConstruitEtoile);
+		remove(boutonConstruitPresident);
+		remove(boutonConstruitRoyal);
+		remove(boutonConstruitSafari);
+		remove(boutonConstruitTajMahal);
+		remove(boutonConstruitWaikiki);
 		setContentPane(panneau);
 	}
 			  

@@ -2,9 +2,9 @@ package jeu;
 
 public class TajMahal extends Hotel{
 	
-	int prixAnnexe1, prixAnnexe2;
-	boolean annexe1Construit = false;
-	boolean annexe2Construit = false;
+	static int prixAnnexe1, prixAnnexe2;
+	static boolean annexe1Construit = false;
+	static boolean annexe2Construit = false;
 	
 	public TajMahal(){
 		this.nom="TajMahal";
@@ -32,6 +32,17 @@ public class TajMahal extends Hotel{
 		casePlateau.add(Plateau.plateau.get(23));
 		casePlateau.add(Plateau.plateau.get(24));
 		casePlateau.add(Plateau.plateau.get(25));
+	}
+	
+	public static void construireAnnexe(int numJoueur){
+		if(nbAnnexeConstruite == 1){
+			annexe1Construit=true;
+			InterfaceGraphique.joueurs.get(numJoueur-1).setArgentJoueur(InterfaceGraphique.joueurs.get(numJoueur-1).getArgentJoueur()-prixAnnexe1);	
+		}
+		if(nbAnnexeConstruite == 2){
+			annexe2Construit=true;
+			InterfaceGraphique.joueurs.get(numJoueur-1).setArgentJoueur(InterfaceGraphique.joueurs.get(numJoueur-1).getArgentJoueur()-prixAnnexe2);	
+		}
 	}
 
 }

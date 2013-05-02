@@ -7,13 +7,13 @@ public abstract class Hotel {
 	String nom;
 	boolean emplacementExt;
 	int prixTerrain;
-	int prixAchatObligatoire=prixTerrain/2;
 	int prixEntree;
 	int prixBatimentPrinc;
 	boolean batimentPrincConstruit=false;
 	int prixBaseLoisir;
 	boolean baseLoisirConstruit=false;
-	int nbAnnexe;
+	static int nbAnnexe;
+	static int nbAnnexeConstruite = 0;
 	int loyer[][];
 	int joueurProprio=0;
 	ArrayList<Case> casePlateau = new ArrayList<Case>();
@@ -30,16 +30,8 @@ public abstract class Hotel {
 		return this.batimentPrincConstruit;
 	}
 	
-	public void setBatimentPrincConstruit(){
-		this.batimentPrincConstruit = true;
-	}
-	
 	public boolean getBaseLoisirConstruit(){
 		return this.baseLoisirConstruit;
-	}
-	
-	public void setBaseLoisirConstruit(){
-		this.baseLoisirConstruit = true;
 	}
 	
 	public int getJoueurProprio(){
@@ -57,8 +49,44 @@ public abstract class Hotel {
 		this.joueurProprio = acheteur;
 		InterfaceGraphique.joueurs.get(acheteur-1).setArgentJoueur(InterfaceGraphique.joueurs.get(acheteur-1).getArgentJoueur()-this.prixTerrain/2);
 		InterfaceGraphique.joueurs.get(vendeur-1).setArgentJoueur(InterfaceGraphique.joueurs.get(vendeur-1).getArgentJoueur()+this.prixTerrain/2);
-		
-		
+	}
+	
+	public void construit(int numJoueur, String nom){
+		if(!this.batimentPrincConstruit){
+			this.batimentPrincConstruit=true;
+			InterfaceGraphique.joueurs.get(numJoueur-1).setArgentJoueur(InterfaceGraphique.joueurs.get(numJoueur-1).getArgentJoueur()-this.prixBatimentPrinc);	
+		}
+		else{
+			if(this.nbAnnexeConstruite<this.nbAnnexe){
+				this.nbAnnexeConstruite++;
+				if(nom.equals("Fujiyama")){
+					Fujiyama.construireAnnexe(numJoueur);
+				}
+				if(nom.equals("Etoile")){
+					Etoile.construireAnnexe(numJoueur);
+				}
+				if(nom.equals("President")){
+					President.construireAnnexe(numJoueur);
+				}
+				if(nom.equals("Royal")){
+					Royal.construireAnnexe(numJoueur);
+				}
+				if(nom.equals("Safari")){
+					Safari.construireAnnexe(numJoueur);
+				}
+				if(nom.equals("TajMahal")){
+					TajMahal.construireAnnexe(numJoueur);
+				}
+				if(nom.equals("Waikiki")){
+					Waikiki.construireAnnexe(numJoueur);
+				}
+			}
+			//if(this.nbAnnexeConstruite == this.nbAnnexe){
+			else{
+				this.baseLoisirConstruit=true;
+				InterfaceGraphique.joueurs.get(numJoueur-1).setArgentJoueur(InterfaceGraphique.joueurs.get(numJoueur-1).getArgentJoueur()-this.prixBaseLoisir);	
+			}
+		}
 	}
 	
 	public static Hotel trouveHotel(String nom, ArrayList<Hotel> liste){

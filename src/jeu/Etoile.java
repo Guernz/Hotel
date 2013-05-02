@@ -2,11 +2,11 @@ package jeu;
 
 public class Etoile extends Hotel{
 	
-	int prixAnnexe1, prixAnnexe2, prixAnnexe3, prixAnnexe4;
-	boolean annexe1Construit=false;
-	boolean annexe2Construit=false;
-	boolean annexe3Construit=false;
-	boolean annexe4Construit=false;
+	static int prixAnnexe1, prixAnnexe2, prixAnnexe3, prixAnnexe4;
+	static boolean annexe1Construit=false;
+	static boolean annexe2Construit=false;
+	static boolean annexe3Construit=false;
+	static boolean annexe4Construit=false;
 	
 	public Etoile(){
 		this.nom="Etoile";
@@ -44,6 +44,25 @@ public class Etoile extends Hotel{
 		casePlateau.add(Plateau.plateau.get(24));
 		casePlateau.add(Plateau.plateau.get(28));
 		casePlateau.add(Plateau.plateau.get(29));
+	}
+	
+	public static void construireAnnexe(int numJoueur){
+		if(nbAnnexeConstruite == 1){
+			annexe1Construit=true;
+			InterfaceGraphique.joueurs.get(numJoueur-1).setArgentJoueur(InterfaceGraphique.joueurs.get(numJoueur-1).getArgentJoueur()-prixAnnexe1);	
+		}
+		if(nbAnnexeConstruite == 2){
+			annexe2Construit=true;
+			InterfaceGraphique.joueurs.get(numJoueur-1).setArgentJoueur(InterfaceGraphique.joueurs.get(numJoueur-1).getArgentJoueur()-prixAnnexe2);	
+		}
+		if(nbAnnexeConstruite == 3){
+			annexe3Construit=true;
+			InterfaceGraphique.joueurs.get(numJoueur-1).setArgentJoueur(InterfaceGraphique.joueurs.get(numJoueur-1).getArgentJoueur()-prixAnnexe3);	
+		}
+		if(nbAnnexeConstruite == 4){
+			annexe4Construit=true;
+			InterfaceGraphique.joueurs.get(numJoueur-1).setArgentJoueur(InterfaceGraphique.joueurs.get(numJoueur-1).getArgentJoueur()-prixAnnexe4);	
+		}
 	}
 
 

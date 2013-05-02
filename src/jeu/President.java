@@ -2,10 +2,10 @@ package jeu;
 
 public class President extends Hotel{
 
-	int prixAnnexe1, prixAnnexe2, prixAnnexe3;
-	boolean annexe1Construit=false;
-	boolean annexe2Construit=false;
-	boolean annexe3Construit=false;
+	static int prixAnnexe1, prixAnnexe2, prixAnnexe3;
+	static boolean annexe1Construit=false;
+	static boolean annexe2Construit=false;
+	static boolean annexe3Construit=false;
 	
 	public President(){
 		this.nom="President";
@@ -38,6 +38,21 @@ public class President extends Hotel{
 		casePlateau.add(Plateau.plateau.get(13));
 		casePlateau.add(Plateau.plateau.get(14));
 		casePlateau.add(Plateau.plateau.get(15));
+	}
+	
+	public static void construireAnnexe(int numJoueur){
+		if(nbAnnexeConstruite == 1){
+			annexe1Construit=true;
+			InterfaceGraphique.joueurs.get(numJoueur-1).setArgentJoueur(InterfaceGraphique.joueurs.get(numJoueur-1).getArgentJoueur()-prixAnnexe1);	
+		}
+		if(nbAnnexeConstruite == 2){
+			annexe2Construit=true;
+			InterfaceGraphique.joueurs.get(numJoueur-1).setArgentJoueur(InterfaceGraphique.joueurs.get(numJoueur-1).getArgentJoueur()-prixAnnexe2);	
+		}
+		if(nbAnnexeConstruite == 3){
+			annexe3Construit=true;
+			InterfaceGraphique.joueurs.get(numJoueur-1).setArgentJoueur(InterfaceGraphique.joueurs.get(numJoueur-1).getArgentJoueur()-prixAnnexe3);	
+		}
 	}
 	
 }
