@@ -19,6 +19,8 @@ public class Audio extends Thread{
 	        } catch (IOException e1) {
 	            e1.printStackTrace();
 	        }
+	        
+	        
 	         
 	        try {
 	            audioInputStream = AudioSystem.getAudioInputStream(fichier);
