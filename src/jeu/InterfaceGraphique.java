@@ -282,6 +282,7 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 				  add(boutonAction);
 			  }
 			  actualiserPosition();
+			  argentJoueurActuel.setText("<html>Joueur " + joueurActif + "(" + joueurs.get(joueurActif-1).getCouleur() + ")" + "<br/>argent " + joueurs.get(joueurActif-1).getArgentJoueur() + "</html>");
 			  setContentPane(panneau);			  
 		  }
 		  
@@ -632,18 +633,21 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 		clean();
 		Hotel hotel = Hotel.trouveHotel(nom, hotelCase);
 		hotel.achatHotel(joueurActif);
+		argentJoueurActuel.setText("<html>Joueur " + joueurActif + "<br/>argent " + joueurs.get(joueurActif-1).getArgentJoueur() + "</html>");
 	}
 	
 	public void boutonRachatHotel(String nom){
 		clean();
 		Hotel hotel = Hotel.trouveHotel(nom, hotelCase);
 		hotel.rachatHotel(joueurActif);
+		argentJoueurActuel.setText("<html>Joueur " + joueurActif + "<br/>argent " + joueurs.get(joueurActif-1).getArgentJoueur() + "</html>");
 	}
 	
 	public void boutonConstruitHotel(String nom){
 		clean();
 		Hotel hotel = Hotel.trouveHotel(nom, hotelCase);
 		hotel.construit(joueurActif,nom);
+		argentJoueurActuel.setText("<html>Joueur " + joueurActif + "<br/>argent " + joueurs.get(joueurActif-1).getArgentJoueur() + "</html>");
 	}
 	
 	public void clean(){

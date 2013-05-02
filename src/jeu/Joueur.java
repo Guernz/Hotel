@@ -49,7 +49,7 @@ public class Joueur extends De {
 				i++;
 			}
 		}
-		if (caseDepart<=7 && caseFinale>=8){
+		if (caseDepart<=7 && caseFinale+caseDepart>=8){
 			InterfaceGraphique.joueurs.get(InterfaceGraphique.joueurActif-1).setArgentJoueur(InterfaceGraphique.joueurs.get(InterfaceGraphique.joueurActif-1).getArgentJoueur()+2000);
 		}
 		this.position+=caseFinale;
