@@ -5,16 +5,16 @@ import java.util.Random;
 
 public class De {
 	
-	int nbFace=6;
+	static int nbFace=6;
 	ArrayList<Face> faceDeAvance = new ArrayList<Face>();
-	ArrayList<Face> faceDeConstruit = new ArrayList<Face>();
+	static ArrayList<Face> faceDeConstruit = new ArrayList<Face>();
 	 
 	public De(){
 		new DeAvance();
 		new DeConstruit();
 	}
 	
-	public int lancer(){
+	public static int lancer(){
 		Random r = new Random();
 		return r.nextInt(nbFace);
 	}
@@ -23,7 +23,7 @@ public class De {
 		return faceDeAvance.get(lancer()).getContenuFace();
 	}
 	
-	public int lancerDeConstruit(){
+	public static int lancerDeConstruit(){
 		return faceDeConstruit.get(lancer()).getContenuFace();
 	}
 	

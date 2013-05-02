@@ -48,20 +48,76 @@ public class Etoile extends Hotel{
 	
 	public static void construireAnnexe(int numJoueur){
 		if(nbAnnexeConstruite == 1){
-			annexe1Construit=true;
-			InterfaceGraphique.joueurs.get(numJoueur-1).setArgentJoueur(InterfaceGraphique.joueurs.get(numJoueur-1).getArgentJoueur()-prixAnnexe1);	
+			int resDeConstruit = De.lancerDeConstruit();
+			switch(resDeConstruit){
+			case 0:
+				break;
+			case 1:
+				annexe1Construit=true;
+				InterfaceGraphique.joueurs.get(numJoueur-1).setArgentJoueur(InterfaceGraphique.joueurs.get(numJoueur-1).getArgentJoueur()-prixAnnexe1);	
+				break;
+			case 2:
+				annexe1Construit=true;
+				InterfaceGraphique.joueurs.get(numJoueur-1).setArgentJoueur(InterfaceGraphique.joueurs.get(numJoueur-1).getArgentJoueur()-prixAnnexe1*2);	
+				break;
+			case 3:
+				annexe1Construit=true;
+				break;
+			}
 		}
 		if(nbAnnexeConstruite == 2){
-			annexe2Construit=true;
-			InterfaceGraphique.joueurs.get(numJoueur-1).setArgentJoueur(InterfaceGraphique.joueurs.get(numJoueur-1).getArgentJoueur()-prixAnnexe2);	
+			int resDeConstruit = De.lancerDeConstruit();
+			switch(resDeConstruit){
+			case 0:
+				break;
+			case 1:
+				annexe2Construit=true;
+				InterfaceGraphique.joueurs.get(numJoueur-1).setArgentJoueur(InterfaceGraphique.joueurs.get(numJoueur-1).getArgentJoueur()-prixAnnexe2);	
+				break;
+			case 2:
+				annexe2Construit=true;
+				InterfaceGraphique.joueurs.get(numJoueur-1).setArgentJoueur(InterfaceGraphique.joueurs.get(numJoueur-1).getArgentJoueur()-prixAnnexe2*2);	
+				break;
+			case 3:
+				annexe2Construit=true;
+				break;
+			}
 		}
 		if(nbAnnexeConstruite == 3){
-			annexe3Construit=true;
-			InterfaceGraphique.joueurs.get(numJoueur-1).setArgentJoueur(InterfaceGraphique.joueurs.get(numJoueur-1).getArgentJoueur()-prixAnnexe3);	
+			int resDeConstruit = De.lancerDeConstruit();
+			switch(resDeConstruit){
+			case 0:
+				break;
+			case 1:
+				annexe3Construit=true;
+				InterfaceGraphique.joueurs.get(numJoueur-1).setArgentJoueur(InterfaceGraphique.joueurs.get(numJoueur-1).getArgentJoueur()-prixAnnexe3);	
+				break;
+			case 2:
+				annexe3Construit=true;
+				InterfaceGraphique.joueurs.get(numJoueur-1).setArgentJoueur(InterfaceGraphique.joueurs.get(numJoueur-1).getArgentJoueur()-prixAnnexe3*2);	
+				break;
+			case 3:
+				annexe3Construit=true;
+				break;
+			}
 		}
 		if(nbAnnexeConstruite == 4){
-			annexe4Construit=true;
-			InterfaceGraphique.joueurs.get(numJoueur-1).setArgentJoueur(InterfaceGraphique.joueurs.get(numJoueur-1).getArgentJoueur()-prixAnnexe4);	
+			int resDeConstruit = De.lancerDeConstruit();
+			switch(resDeConstruit){
+			case 0:
+				break;
+			case 1:
+				annexe4Construit=true;
+				InterfaceGraphique.joueurs.get(numJoueur-1).setArgentJoueur(InterfaceGraphique.joueurs.get(numJoueur-1).getArgentJoueur()-prixAnnexe4);	
+				break;
+			case 2:
+				annexe4Construit=true;
+				InterfaceGraphique.joueurs.get(numJoueur-1).setArgentJoueur(InterfaceGraphique.joueurs.get(numJoueur-1).getArgentJoueur()-prixAnnexe4*2);	
+				break;
+			case 3:
+				annexe4Construit=true;
+				break;
+			}
 		}
 	}
 

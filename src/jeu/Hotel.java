@@ -53,8 +53,26 @@ public abstract class Hotel {
 	
 	public void construit(int numJoueur, String nom){
 		if(!this.batimentPrincConstruit){
-			this.batimentPrincConstruit=true;
-			InterfaceGraphique.joueurs.get(numJoueur-1).setArgentJoueur(InterfaceGraphique.joueurs.get(numJoueur-1).getArgentJoueur()-this.prixBatimentPrinc);	
+			int resDeConstruit = De.lancerDeConstruit();
+			switch(resDeConstruit){
+			case 0:
+				System.out.println("construit pas");
+				break;
+			case 1:
+				System.out.println("construit");
+				InterfaceGraphique.joueurs.get(numJoueur-1).setArgentJoueur(InterfaceGraphique.joueurs.get(numJoueur-1).getArgentJoueur()-this.prixBatimentPrinc);
+				this.batimentPrincConstruit=true;
+				break;
+			case 2:
+				System.out.println("construit double");
+				InterfaceGraphique.joueurs.get(numJoueur-1).setArgentJoueur(InterfaceGraphique.joueurs.get(numJoueur-1).getArgentJoueur()-this.prixBatimentPrinc*2);
+				this.batimentPrincConstruit=true;
+				break;
+			case 3:
+				System.out.println("construit gratuit");
+				this.batimentPrincConstruit=true;
+				break;
+			}	
 		}
 		else{
 			if(this.nbAnnexeConstruite<this.nbAnnexe){
@@ -83,8 +101,22 @@ public abstract class Hotel {
 			}
 			//if(this.nbAnnexeConstruite == this.nbAnnexe){
 			else{
-				this.baseLoisirConstruit=true;
-				InterfaceGraphique.joueurs.get(numJoueur-1).setArgentJoueur(InterfaceGraphique.joueurs.get(numJoueur-1).getArgentJoueur()-this.prixBaseLoisir);	
+				int resDeConstruit = De.lancerDeConstruit();
+				switch(resDeConstruit){
+				case 0:
+					break;
+				case 1:
+					this.baseLoisirConstruit=true;
+					InterfaceGraphique.joueurs.get(numJoueur-1).setArgentJoueur(InterfaceGraphique.joueurs.get(numJoueur-1).getArgentJoueur()-this.prixBaseLoisir);
+					break;
+				case 2:
+					this.baseLoisirConstruit=true;
+					InterfaceGraphique.joueurs.get(numJoueur-1).setArgentJoueur(InterfaceGraphique.joueurs.get(numJoueur-1).getArgentJoueur()-this.prixBaseLoisir*2);
+					break;
+				case 3:
+					this.baseLoisirConstruit=true;
+					break;
+				}
 			}
 		}
 	}

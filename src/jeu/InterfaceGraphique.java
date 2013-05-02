@@ -532,9 +532,7 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 		hotelCase = new ArrayList<Hotel>();
 		hotelCase = Hotel.trouveHotel(joueurs.get(joueurActif-1).getPosition(),hotels);
 		for( numHotelCase = 0 ; numHotelCase<hotelCase.size(); numHotelCase++){
-			System.out.println("Hotel " + hotelCase.get(numHotelCase).getNom());
 			if(hotelCase.get(numHotelCase).getJoueurProprio() == 0) {
-				System.out.println("Vous pouvez acheter cet hotel.");
 				remove(boutonAction);
 				if(hotelCase.get(numHotelCase).getNom().equals("Fujiyama")){
 					add(boutonFujiyama);
@@ -574,23 +572,6 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 					System.out.println("Ce terrain vous appartient deja.");
 				}
 				if(!hotelCase.get(numHotelCase).getBatimentPrincConstruit() && hotelCase.get(numHotelCase).getJoueurProprio() != joueurActif){
-					int proprio = hotelCase.get(numHotelCase).getJoueurProprio();
-					String couleurProprio = null;
-					switch(proprio){
-					case 1:
-						couleurProprio = "bleu";
-						break;
-					case 2:
-						couleurProprio = "rouge";
-						break;
-					case 3:
-						couleurProprio = "vert";
-						break;
-					case 4:
-						couleurProprio = "jaune";
-						break;
-					}
-					System.out.println("Cet hotel appartient au joueur " + couleurProprio + ", mais il n'a pas encore construit. Vous pouvez donc lui racheter.");
 					if(hotelCase.get(numHotelCase).getNom().equals("Fujiyama")){
 						add(boutonRachatFujiyama);
 						add(labelRachat);

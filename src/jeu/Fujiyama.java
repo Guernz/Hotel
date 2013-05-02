@@ -37,13 +37,42 @@ public class Fujiyama extends Hotel{
 	
 	public static void construireAnnexe(int numJoueur){
 		if(nbAnnexeConstruite == 1){
-			annexe1Construit=true;
-			InterfaceGraphique.joueurs.get(numJoueur-1).setArgentJoueur(InterfaceGraphique.joueurs.get(numJoueur-1).getArgentJoueur()-Fujiyama.prixAnnexe1);	
+			int resDeConstruit = De.lancerDeConstruit();
+			switch(resDeConstruit){
+			case 0:
+				break;
+			case 1:
+				annexe1Construit=true;
+				InterfaceGraphique.joueurs.get(numJoueur-1).setArgentJoueur(InterfaceGraphique.joueurs.get(numJoueur-1).getArgentJoueur()-prixAnnexe1);	
+				break;
+			case 2:
+				annexe1Construit=true;
+				InterfaceGraphique.joueurs.get(numJoueur-1).setArgentJoueur(InterfaceGraphique.joueurs.get(numJoueur-1).getArgentJoueur()-prixAnnexe1*2);	
+				break;
+			case 3:
+				annexe1Construit=true;
+				break;
+			}
 		}
 		if(nbAnnexeConstruite == 2){
-			annexe2Construit=true;
-			InterfaceGraphique.joueurs.get(numJoueur-1).setArgentJoueur(InterfaceGraphique.joueurs.get(numJoueur-1).getArgentJoueur()-Fujiyama.prixAnnexe2);	
+			int resDeConstruit = De.lancerDeConstruit();
+			switch(resDeConstruit){
+			case 0:
+				break;
+			case 1:
+				annexe2Construit=true;
+				InterfaceGraphique.joueurs.get(numJoueur-1).setArgentJoueur(InterfaceGraphique.joueurs.get(numJoueur-1).getArgentJoueur()-prixAnnexe2);	
+				break;
+			case 2:
+				annexe2Construit=true;
+				InterfaceGraphique.joueurs.get(numJoueur-1).setArgentJoueur(InterfaceGraphique.joueurs.get(numJoueur-1).getArgentJoueur()-prixAnnexe2*2);	
+				break;
+			case 3:
+				annexe2Construit=true;
+				break;
+			}
 		}
+		
 	}
 
 }
