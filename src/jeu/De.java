@@ -8,7 +8,7 @@ public class De {
 	int nbFace=6;
 	ArrayList<Face> faceDeAvance = new ArrayList<Face>();
 	ArrayList<Face> faceDeConstruit = new ArrayList<Face>();
-	
+	 
 	public De(){
 		new DeAvance();
 		new DeConstruit();
