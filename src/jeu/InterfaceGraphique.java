@@ -13,8 +13,8 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 	private JLabel labelAchat = new JLabel("Achat");
 	private JLabel labelRachat = new JLabel("Rachat");
 	private Bouton boutonJouer = new Bouton("Jouer");
-	private Bouton boutonRegle = new Bouton("Règle du jeu");
-	private Bouton boutonLancerDe = new Bouton("Lancer dé");
+	private Bouton boutonRegle = new Bouton("Rï¿½gle du jeu");
+	private Bouton boutonLancerDe = new Bouton("Lancer dï¿½");
 	private Bouton bouton2J = new Bouton("2 joueurs");
 	private Bouton bouton3J = new Bouton("3 joueurs");
 	private Bouton bouton4J = new Bouton("4 joueurs");
@@ -64,15 +64,15 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 	static int numHotelCase;
 		
 	public InterfaceGraphique(){
-		//Définit un titre pour notre fenêtre
-	    this.setTitle("Jeu de société Hotel");
-	    //Définit sa taille 
+		//Dï¿½finit un titre pour notre fenï¿½tre
+	    this.setTitle("Jeu de sociï¿½tï¿½ Hotel");
+	    //Dï¿½finit sa taille 
 	    this.setSize(width, height);
-	    //Nous demandons maintenant à notre objet de se positionner au centre
+	    //Nous demandons maintenant ï¿½ notre objet de se positionner au centre
 	    this.setLocationRelativeTo(null);
 	    //Termine le processus lorsqu'on clique sur la croix rouge
 	    this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);    
-	    //On prévient notre JFrame que notre JPanel sera son content pane
+	    //On prï¿½vient notre JFrame que notre JPanel sera son content pane
 	    this.setContentPane(panneau); 
 	    this.setLayout(null);
 	    
@@ -283,11 +283,11 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 		  }
 		  
 		  if(arg0.getSource() == boutonAction){
-			  int type = plateauJeu.plateau.get(joueurs.get(joueurActif-1).getPosition()-1).getType();
+			  int type = Plateau.plateau.get(joueurs.get(joueurActif-1).getPosition()-1).getType();
 			  verifieSiDoitPayerLoyer();
 			  switch(type){
 				  case 1:
-					  //case départ, il n'y a pas d'action
+					  //case dï¿½part, il n'y a pas d'action
 					  break;
 				  case 2:
 					  //entreeGratuite();
@@ -372,16 +372,16 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 	
 	public void actualiserPosition(){
 		if(joueurs.get(joueurActif-1).getCouleur().equals("Bleu")){
-			  panneau.setBleu(plateauJeu.plateau.get(joueurs.get(joueurActif-1).getPosition()-1).getX(), plateauJeu.plateau.get(joueurs.get(joueurActif-1).getPosition()-1).getY());
+			  panneau.setBleu(Plateau.plateau.get(joueurs.get(joueurActif-1).getPosition()-1).getX(), Plateau.plateau.get(joueurs.get(joueurActif-1).getPosition()-1).getY());
 		  }
 		  if(joueurs.get(joueurActif-1).getCouleur().equals("Rouge")){
-			  panneau.setRouge(plateauJeu.plateau.get(joueurs.get(joueurActif-1).getPosition()-1).getX(), plateauJeu.plateau.get(joueurs.get(joueurActif-1).getPosition()-1).getY());
+			  panneau.setRouge(Plateau.plateau.get(joueurs.get(joueurActif-1).getPosition()-1).getX(), Plateau.plateau.get(joueurs.get(joueurActif-1).getPosition()-1).getY());
 		  }
 		  if(joueurs.get(joueurActif-1).getCouleur().equals("Vert")){
-			  panneau.setVert(plateauJeu.plateau.get(joueurs.get(joueurActif-1).getPosition()-1).getX(), plateauJeu.plateau.get(joueurs.get(joueurActif-1).getPosition()-1).getY());
+			  panneau.setVert(Plateau.plateau.get(joueurs.get(joueurActif-1).getPosition()-1).getX(), Plateau.plateau.get(joueurs.get(joueurActif-1).getPosition()-1).getY());
 		  }
 		  if(joueurs.get(joueurActif-1).getCouleur().equals("Jaune")){
-			  panneau.setJaune(plateauJeu.plateau.get(joueurs.get(joueurActif-1).getPosition()-1).getX(), plateauJeu.plateau.get(joueurs.get(joueurActif-1).getPosition()-1).getY());
+			  panneau.setJaune(Plateau.plateau.get(joueurs.get(joueurActif-1).getPosition()-1).getX(), Plateau.plateau.get(joueurs.get(joueurActif-1).getPosition()-1).getY());
 		  }
 	}
 	
@@ -430,7 +430,7 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 				System.out.println("Vous devez lui payer");
 			}
 			if(hotelCase.get(i).getJoueurProprio() == joueurActif){
-				System.out.println("Vous êtes chez vous.");
+				System.out.println("Vous ï¿½tes chez vous.");
 			}
 		}
 	}

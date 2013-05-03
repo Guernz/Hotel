@@ -56,9 +56,7 @@ public abstract class Hotel {
 		int vendeur = getJoueurProprio();
 		this.joueurProprio = acheteur;
 		InterfaceGraphique.joueurs.get(acheteur-1).setArgentJoueur(InterfaceGraphique.joueurs.get(acheteur-1).getArgentJoueur()-this.prixTerrain/2);
-		InterfaceGraphique.joueurs.get(vendeur-1).setArgentJoueur(InterfaceGraphique.joueurs.get(vendeur-1).getArgentJoueur()+this.prixTerrain/2);
-		
-		
+		InterfaceGraphique.joueurs.get(vendeur-1).setArgentJoueur(InterfaceGraphique.joueurs.get(vendeur-1).getArgentJoueur()+this.prixTerrain/2);		
 	}
 	
 	public static Hotel trouveHotel(String nom, ArrayList<Hotel> liste){
@@ -74,7 +72,7 @@ public abstract class Hotel {
 			i++;
 		}
 		if(!trouve){
-			System.out.println("hotel non trouvé");
+			System.out.println("hotel non trouvï¿½");
 		}
 		return rep;
 	}

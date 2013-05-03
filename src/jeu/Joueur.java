@@ -55,7 +55,7 @@ public class Joueur extends De {
 		if(this.position>=Plateau.nbCase+1){
 			this.position-=Plateau.nbCase;
 		}
-		System.out.println("Vous êtes sur la case numero :"+getPosition());
+		System.out.println("Vous Ãªtes sur la case numero :"+getPosition());
 		actionCase(this.position);
 		return res;
 	}
