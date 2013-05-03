@@ -87,6 +87,7 @@ public class Case {
 	/**
 	 * Renvoie un tableau d'entier avec les entrees disponibles pour un joueur pour chaque hotels
 	 * Renvoie -1 si aucune entree n'est disponible pour le joueur
+	 * @return entreeRetour
 	 */
 	public int[] entreePossible(){
 		ArrayList <Hotel> listeHotel = InterfaceGraphique.hotels;
@@ -104,8 +105,55 @@ public class Case {
 	}
 	
 	/**
+	 * Renvoie les entrees possibles pour un joueur pour un hotel precis
+	 * @param nomHotel
+	 * @return
+	 */
+	public int[] entreePossibleHotel(String nomHotel){
+		Hotel hotel = Hotel.trouveHotel(nomHotel, InterfaceGraphique.hotels);
+		int[] entreeRetour = {-1};
+		
+		for(int i = 0; i < hotel.casePlateau.size(); i++){
+			if(hotel.casePlateau.get(i).entreeDispo()){
+				entreeRetour[entreeRetour.length] = hotel.casePlateau.get(i).num;
+			}
+		}
+		return entreeRetour;
+	}
+	
+	/**
+	 * Renvoie le nom de l'hotel pour une case donnee
+	 * @param numCase
+	 * @return nomHotel
+	 */
+	public String caseHotel(int numCase){
+		ArrayList <Hotel> listeHotel = InterfaceGraphique.hotels;
+		String nomHotel = "";
+		
+		for(int i= 0; i < listeHotel.size(); i++){
+			for(int j = 0; j < listeHotel.get(i).casePlateau.size(); j++){
+				if(listeHotel.get(i).casePlateau.get(j).num == numCase){
+					nomHotel = listeHotel.get(i).nom;
+				}	
+			}
+		}
+		return nomHotel;
+	}
+		
+	/**
 	 * Ajoute une entrée sur la case correspondante pour le joueur qui lance cette action
 	 */
-	
+	public void placerEntree(){
+		//Affichage graphique des entrees possibles pour le joueur
+			//on affiche les numéros de cases possibles (fonction entree possible)
+		
+		//L'utilisateur clique sur l'entree a acheter
+		int numCaseEntree = 0;	
+			//affichage du prix de l'entree
+			
+		caseHotel(numCaseEntree);
+		
+		
+	}
 	
 }

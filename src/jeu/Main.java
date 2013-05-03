@@ -7,6 +7,8 @@ public class Main {
 	
 	public static void main(String[] args) {
 		InterfaceGraphique interfaceGraphique = new InterfaceGraphique();
+		
+		
 		/*
 		Plateau plateau = new Plateau();
 		Joueur joueur1 = new Joueur("Bleu",25000);

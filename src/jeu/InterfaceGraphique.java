@@ -430,7 +430,7 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 				System.out.println("Vous devez lui payer");
 			}
 			if(hotelCase.get(i).getJoueurProprio() == joueurActif){
-				System.out.println("Vous �tes chez vous.");
+				System.out.println("Vous etes chez vous.");
 			}
 		}
 	}
