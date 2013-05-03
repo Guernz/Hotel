@@ -46,9 +46,10 @@ public class Etoile extends Hotel{
 		casePlateau.add(Plateau.plateau.get(29));
 	}
 	
-	public static void construireAnnexe(int numJoueur){
+	public static int construireAnnexe(int numJoueur){
+		int resDeConstruit = 10;
 		if(nbAnnexeConstruite == 1){
-			int resDeConstruit = De.lancerDeConstruit();
+			resDeConstruit = De.lancerDeConstruit();
 			switch(resDeConstruit){
 			case 0:
 				break;
@@ -66,7 +67,7 @@ public class Etoile extends Hotel{
 			}
 		}
 		if(nbAnnexeConstruite == 2){
-			int resDeConstruit = De.lancerDeConstruit();
+			resDeConstruit = De.lancerDeConstruit();
 			switch(resDeConstruit){
 			case 0:
 				break;
@@ -84,7 +85,7 @@ public class Etoile extends Hotel{
 			}
 		}
 		if(nbAnnexeConstruite == 3){
-			int resDeConstruit = De.lancerDeConstruit();
+			resDeConstruit = De.lancerDeConstruit();
 			switch(resDeConstruit){
 			case 0:
 				break;
@@ -102,7 +103,7 @@ public class Etoile extends Hotel{
 			}
 		}
 		if(nbAnnexeConstruite == 4){
-			int resDeConstruit = De.lancerDeConstruit();
+			resDeConstruit = De.lancerDeConstruit();
 			switch(resDeConstruit){
 			case 0:
 				break;
@@ -119,6 +120,7 @@ public class Etoile extends Hotel{
 				break;
 			}
 		}
+		return resDeConstruit;
 	}
 
 

@@ -34,9 +34,10 @@ public class Safari extends Hotel{
 		casePlateau.add(Plateau.plateau.get(30));
 	}
 	
-	public static void construireAnnexe(int numJoueur){
+	public static int construireAnnexe(int numJoueur){
+		int resDeConstruit = 10;
 		if(nbAnnexeConstruite == 1){
-			int resDeConstruit = De.lancerDeConstruit();
+			resDeConstruit = De.lancerDeConstruit();
 			switch(resDeConstruit){
 			case 0:
 				break;
@@ -54,7 +55,7 @@ public class Safari extends Hotel{
 			}
 		}
 		if(nbAnnexeConstruite == 2){
-			int resDeConstruit = De.lancerDeConstruit();
+			resDeConstruit = De.lancerDeConstruit();
 			switch(resDeConstruit){
 			case 0:
 				break;
@@ -71,6 +72,7 @@ public class Safari extends Hotel{
 				break;
 			}
 		}
+		return resDeConstruit;
 	}
 
 }

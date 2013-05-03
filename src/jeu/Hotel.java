@@ -51,9 +51,10 @@ public abstract class Hotel {
 		InterfaceGraphique.joueurs.get(vendeur-1).setArgentJoueur(InterfaceGraphique.joueurs.get(vendeur-1).getArgentJoueur()+this.prixTerrain/2);
 	}
 	
-	public void construit(int numJoueur, String nom){
+	public int construit(int numJoueur, String nom){
+		int resDeConstruit = 10;
 		if(!this.batimentPrincConstruit){
-			int resDeConstruit = De.lancerDeConstruit();
+			resDeConstruit = De.lancerDeConstruit();
 			switch(resDeConstruit){
 			case 0:
 				System.out.println("construit pas");
@@ -78,30 +79,30 @@ public abstract class Hotel {
 			if(this.nbAnnexeConstruite<this.nbAnnexe){
 				this.nbAnnexeConstruite++;
 				if(nom.equals("Fujiyama")){
-					Fujiyama.construireAnnexe(numJoueur);
+					resDeConstruit=Fujiyama.construireAnnexe(numJoueur);
 				}
 				if(nom.equals("Etoile")){
-					Etoile.construireAnnexe(numJoueur);
+					resDeConstruit=Etoile.construireAnnexe(numJoueur);
 				}
 				if(nom.equals("President")){
-					President.construireAnnexe(numJoueur);
+					resDeConstruit=President.construireAnnexe(numJoueur);
 				}
 				if(nom.equals("Royal")){
-					Royal.construireAnnexe(numJoueur);
+					resDeConstruit=Royal.construireAnnexe(numJoueur);
 				}
 				if(nom.equals("Safari")){
-					Safari.construireAnnexe(numJoueur);
+					resDeConstruit=Safari.construireAnnexe(numJoueur);
 				}
 				if(nom.equals("TajMahal")){
-					TajMahal.construireAnnexe(numJoueur);
+					resDeConstruit=TajMahal.construireAnnexe(numJoueur);
 				}
 				if(nom.equals("Waikiki")){
-					Waikiki.construireAnnexe(numJoueur);
+					resDeConstruit=Waikiki.construireAnnexe(numJoueur);
 				}
 			}
 			//if(this.nbAnnexeConstruite == this.nbAnnexe){
 			else{
-				int resDeConstruit = De.lancerDeConstruit();
+				resDeConstruit = De.lancerDeConstruit();
 				switch(resDeConstruit){
 				case 0:
 					break;
@@ -119,6 +120,7 @@ public abstract class Hotel {
 				}
 			}
 		}
+		return resDeConstruit;
 	}
 	
 	public static Hotel trouveHotel(String nom, ArrayList<Hotel> liste){

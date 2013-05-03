@@ -55,6 +55,16 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 	private Bouton titreSafari = new Bouton("safari.png",0);
 	private Bouton titreTajMahal = new Bouton("tajmahal.png",0);
 	private Bouton titreWaikiki = new Bouton("waikiki.png",0);
+	private Bouton de1 = new Bouton("1.png",0);
+	private Bouton de2 = new Bouton("2.png",0);
+	private Bouton de3 = new Bouton("3.png",0);
+	private Bouton de4 = new Bouton("4.png",0);
+	private Bouton de5 = new Bouton("5.png",0);
+	private Bouton de6 = new Bouton("6.png",0);
+	private Bouton deConstruit = new Bouton("oui.png",0);
+	private Bouton deConstruitPas = new Bouton("non.png",0);
+	private Bouton deGratuit = new Bouton("gratuit.png",0);
+	private Bouton deDouble = new Bouton("double.png",0);
 	private Plateau plateauJeu = new Plateau();
 	private Joueur joueurBleu = new Joueur("Bleu");
 	private Joueur joueurJaune = new Joueur("Jaune");
@@ -184,6 +194,16 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 	    titreTajMahal.setBounds(1025,450,300,200);
 	    titreWaikiki.setBounds(1025,450,300,200);
 	    titreRoyal.setBounds(1025,250,300,200);
+	    de1.setBounds(1075,180,50,50);
+	    de2.setBounds(1075,180,50,50);
+	    de3.setBounds(1075,180,50,50);
+	    de4.setBounds(1075,180,50,50);
+	    de5.setBounds(1075,180,50,50);
+	    de6.setBounds(1075,180,50,50);
+	    deConstruit.setBounds(1225,180,50,50);
+	    deConstruitPas.setBounds(1225,180,50,50);
+	    deDouble.setBounds(1225,180,50,50);
+	    deGratuit.setBounds(1225,180,50,50);
 	    //On rend la fenetre visible
 	    this.setVisible(true);
 	}
@@ -296,6 +316,26 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 				  add(boutonJoueurSuivant);
 				  add(boutonAction);
 			  }
+			  switch(res){
+			  case 1:
+				  add(de1);
+				  break;
+			  case 2:
+				  add(de2);
+				  break;
+			  case 3:
+				  add(de3);
+				  break;
+			  case 4:
+				  add(de4);
+				  break;
+			  case 5:
+				  add(de5);
+				  break;
+			  case 6:
+				  add(de6);
+				  break;
+			  }
 			  hotelCase = Hotel.trouveHotel(joueurs.get(joueurActif-1).getPosition(),hotels);
 			  for( int i = 0 ; i<hotelCase.size(); i++){
 					if(hotelCase.get(i).getNom().equals("Fujiyama")){
@@ -340,6 +380,16 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 			  remove(titreSafari);
 			  remove(titreTajMahal);
 			  remove(titreWaikiki);
+			  remove(de1);
+			  remove(de2);
+			  remove(de3);
+			  remove(de4);
+			  remove(de5);
+			  remove(de6);
+			  remove(deConstruit);
+			  remove(deConstruitPas);
+			  remove(deGratuit);
+			  remove(deDouble);
 			  add(boutonLancerDe);
 			  setContentPane(panneau);
 		  }
@@ -358,6 +408,16 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 			  remove(titreSafari);
 			  remove(titreTajMahal);
 			  remove(titreWaikiki);
+			  remove(de1);
+			  remove(de2);
+			  remove(de3);
+			  remove(de4);
+			  remove(de5);
+			  remove(de6);
+			  remove(deConstruit);
+			  remove(deConstruitPas);
+			  remove(deGratuit);
+			  remove(deDouble);
 			  setContentPane(panneau);
 			  joueurActif++;
 			  if(joueurActif>joueurs.size()){
@@ -685,7 +745,22 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 	public void boutonConstruitHotel(String nom){
 		clean();
 		Hotel hotel = Hotel.trouveHotel(nom, hotelCase);
-		hotel.construit(joueurActif,nom);
+		int resDeConstruit = hotel.construit(joueurActif,nom);
+		switch(resDeConstruit){
+		case 0:
+			add(deConstruitPas);
+			break;
+		case 1:
+			add(deConstruit);
+			break;
+		case 2:
+			add(deDouble);
+			break;
+		case 3:
+			add(deGratuit);
+			break;
+		}
+		setContentPane(panneau);
 		argentJoueurActuel.setText("<html>Joueur " + joueurActif + "<br/>argent " + joueurs.get(joueurActif-1).getArgentJoueur() + "</html>");
 	}
 	
