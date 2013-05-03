@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
 public class Bouton extends JButton{
@@ -24,6 +25,16 @@ public class Bouton extends JButton{
 	      }
 	      */
 	}
+	 public Bouton(String chemin,int i){
+		 super();
+		 try {
+		        img = ImageIO.read(new File(chemin));
+		        this.setIcon(new ImageIcon(img));
+		      } 
+		    catch (IOException e) {
+		        e.printStackTrace();
+		      }
+	 }
 	
 	  
 

@@ -7,7 +7,7 @@ public class Safari extends Hotel{
 	static boolean annexe2Construit=false;
 	
 	public Safari(){
-		this.nom="Fujiyama";
+		this.nom="Safari";
 		this.emplacementExt=true;
 		this.prixTerrain=2000;
 		this.prixEntree=150;

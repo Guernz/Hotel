@@ -13,7 +13,7 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 	private JLabel labelAchat = new JLabel("Achat");
 	private JLabel labelRachat = new JLabel("Rachat");
 	private JLabel labelConstruire = new JLabel("Construire");
-	private Bouton boutonJouer = new Bouton("Jouer");
+	private Bouton boutonJouer =  new Bouton("Jouer");
 	private Bouton boutonRegle = new Bouton("Règle du jeu");
 	private Bouton boutonLancerDe = new Bouton("Lancer dé");
 	private Bouton bouton2J = new Bouton("2 joueurs");
@@ -47,6 +47,14 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 	private Bouton boutonConstruitSafari = new Bouton("Safari");
 	private Bouton boutonConstruitTajMahal = new Bouton("TajMahal");
 	private Bouton boutonConstruitWaikiki = new Bouton("Waikiki");
+	private Bouton titreBoomerang = new Bouton("boomerang.png",0);
+	private Bouton titreFujiyama = new Bouton("fujiyama.png",0);
+	private Bouton titreEtoile = new Bouton("etoile.png",0);
+	private Bouton titrePresident = new Bouton("president.png",0);
+	private Bouton titreRoyal = new Bouton("royal.png",0);
+	private Bouton titreSafari = new Bouton("safari.png",0);
+	private Bouton titreTajMahal = new Bouton("tajmahal.png",0);
+	private Bouton titreWaikiki = new Bouton("waikiki.png",0);
 	private Plateau plateauJeu = new Plateau();
 	private Joueur joueurBleu = new Joueur("Bleu");
 	private Joueur joueurJaune = new Joueur("Jaune");
@@ -74,7 +82,7 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 		//Définit un titre pour notre fenêtre
 	    this.setTitle("Jeu de société Hotel");
 	    //Définit sa taille 
-	    this.setSize(width, height);
+	    this.setSize(width+302, height);
 	    //Nous demandons maintenant à notre objet de se positionner au centre
 	    this.setLocationRelativeTo(null);
 	    //Termine le processus lorsqu'on clique sur la croix rouge
@@ -124,8 +132,7 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 	    widthTemp = width*0.1;
 	    int largeurBouton = (int) widthTemp;
 	    int hauteurBouton = margeHauteurBouton;
-	    
-	    //boutonJouer.setSize(largeurBouton,hauteurBouton);
+
 	    this.add(boutonJouer);
 	    this.add(boutonRegle);
 	    this.add(boutonQuitter);
@@ -169,6 +176,14 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 	    bouton2J.setBounds(margeLargeurBouton,margeHauteurBouton,largeurBouton,hauteurBouton);
 	    bouton3J.setBounds(margeLargeurBouton,3*margeHauteurBouton,largeurBouton,hauteurBouton);
 	    bouton4J.setBounds(margeLargeurBouton,5*margeHauteurBouton,largeurBouton,hauteurBouton);
+	    titreBoomerang.setBounds(1025,450,300,200);
+	    titreFujiyama.setBounds(1025,250,300,200);
+	    titreEtoile.setBounds(1025,250,300,200);
+	    titrePresident.setBounds(1025,450,300,200);
+	    titreSafari.setBounds(1025,450,300,200);
+	    titreTajMahal.setBounds(1025,450,300,200);
+	    titreWaikiki.setBounds(1025,450,300,200);
+	    titreRoyal.setBounds(1025,250,300,200);
 	    //On rend la fenetre visible
 	    this.setVisible(true);
 	}
@@ -281,6 +296,33 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 				  add(boutonJoueurSuivant);
 				  add(boutonAction);
 			  }
+			  hotelCase = Hotel.trouveHotel(joueurs.get(joueurActif-1).getPosition(),hotels);
+			  for( int i = 0 ; i<hotelCase.size(); i++){
+					if(hotelCase.get(i).getNom().equals("Fujiyama")){
+						add(titreFujiyama);
+					}
+					if(hotelCase.get(i).getNom().equals("Boomerang")){
+						add(titreBoomerang);
+					}
+					if(hotelCase.get(i).getNom().equals("Etoile")){
+						add(titreEtoile);
+					}
+					if(hotelCase.get(i).getNom().equals("President")){
+						add(titrePresident);
+					}
+					if(hotelCase.get(i).getNom().equals("Royal")){
+						add(titreRoyal);
+					}
+					if(hotelCase.get(i).getNom().equals("Safari")){
+						add(titreSafari);
+					}
+					if(hotelCase.get(i).getNom().equals("TajMahal")){
+						add(titreTajMahal);
+					}
+					if(hotelCase.get(i).getNom().equals("Waikiki")){
+						add(titreWaikiki);
+					}
+				}
 			  actualiserPosition();
 			  argentJoueurActuel.setText("<html>Joueur " + joueurActif + "(" + joueurs.get(joueurActif-1).getCouleur() + ")" + "<br/>argent " + joueurs.get(joueurActif-1).getArgentJoueur() + "</html>");
 			  setContentPane(panneau);			  
@@ -290,6 +332,14 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 			  clean();
 			  remove(boutonContinuer);
 			  remove(boutonAction);
+			  remove(titreBoomerang);
+			  remove(titreFujiyama);
+			  remove(titreEtoile);
+			  remove(titrePresident);
+			  remove(titreRoyal);
+			  remove(titreSafari);
+			  remove(titreTajMahal);
+			  remove(titreWaikiki);
 			  add(boutonLancerDe);
 			  setContentPane(panneau);
 		  }
@@ -300,6 +350,14 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 			  remove(boutonAction);
 			  remove(argentJoueurActuel);
 			  add(boutonLancerDe);
+			  remove(titreBoomerang);
+			  remove(titreFujiyama);
+			  remove(titreEtoile);
+			  remove(titrePresident);
+			  remove(titreRoyal);
+			  remove(titreSafari);
+			  remove(titreTajMahal);
+			  remove(titreWaikiki);
 			  setContentPane(panneau);
 			  joueurActif++;
 			  if(joueurActif>joueurs.size()){
