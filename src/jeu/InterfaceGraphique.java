@@ -106,7 +106,7 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 	    this.setLocationRelativeTo(null);
 	    //Termine le processus lorsqu'on clique sur la croix rouge
 	    this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);    
-	    //On prévient notre JFrame que notre JPanel sera son content pane
+	    //On prï¿½vient notre JFrame que notre JPanel sera son content pane
 	    this.setContentPane(panneau); 
 	    this.setLayout(null);
 	    
@@ -418,11 +418,11 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 		  }
 		  
 		  if(arg0.getSource() == boutonAction){
-			  int type = plateauJeu.plateau.get(joueurs.get(joueurActif-1).getPosition()-1).getType();
+			  int type = Plateau.plateau.get(joueurs.get(joueurActif-1).getPosition()-1).getType();
 			  verifieSiDoitPayerLoyer();
 			  switch(type){
 				  case 1:
-					  //case départ, il n'y a pas d'action
+					  //case dï¿½part, il n'y a pas d'action
 					  break;
 				  case 2:
 					  //entreeGratuite();
@@ -571,16 +571,16 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 	
 	public void actualiserPosition(){
 		if(joueurs.get(joueurActif-1).getCouleur().equals("Bleu")){
-			  panneau.setBleu(plateauJeu.plateau.get(joueurs.get(joueurActif-1).getPosition()-1).getX(), plateauJeu.plateau.get(joueurs.get(joueurActif-1).getPosition()-1).getY());
+			  panneau.setBleu(Plateau.plateau.get(joueurs.get(joueurActif-1).getPosition()-1).getX(), Plateau.plateau.get(joueurs.get(joueurActif-1).getPosition()-1).getY());
 		  }
 		  if(joueurs.get(joueurActif-1).getCouleur().equals("Rouge")){
-			  panneau.setRouge(plateauJeu.plateau.get(joueurs.get(joueurActif-1).getPosition()-1).getX(), plateauJeu.plateau.get(joueurs.get(joueurActif-1).getPosition()-1).getY());
+			  panneau.setRouge(Plateau.plateau.get(joueurs.get(joueurActif-1).getPosition()-1).getX(), Plateau.plateau.get(joueurs.get(joueurActif-1).getPosition()-1).getY());
 		  }
 		  if(joueurs.get(joueurActif-1).getCouleur().equals("Vert")){
-			  panneau.setVert(plateauJeu.plateau.get(joueurs.get(joueurActif-1).getPosition()-1).getX(), plateauJeu.plateau.get(joueurs.get(joueurActif-1).getPosition()-1).getY());
+			  panneau.setVert(Plateau.plateau.get(joueurs.get(joueurActif-1).getPosition()-1).getX(), Plateau.plateau.get(joueurs.get(joueurActif-1).getPosition()-1).getY());
 		  }
 		  if(joueurs.get(joueurActif-1).getCouleur().equals("Jaune")){
-			  panneau.setJaune(plateauJeu.plateau.get(joueurs.get(joueurActif-1).getPosition()-1).getX(), plateauJeu.plateau.get(joueurs.get(joueurActif-1).getPosition()-1).getY());
+			  panneau.setJaune(Plateau.plateau.get(joueurs.get(joueurActif-1).getPosition()-1).getX(), Plateau.plateau.get(joueurs.get(joueurActif-1).getPosition()-1).getY());
 		  }
 	}
 	
@@ -629,7 +629,7 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 				System.out.println("Vous devez lui payer");
 			}
 			if(hotelCase.get(i).getJoueurProprio() == joueurActif){
-				System.out.println("Vous êtes chez vous.");
+				System.out.println("Vous etes chez vous.");
 			}
 		}
 	}

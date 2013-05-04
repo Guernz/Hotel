@@ -170,7 +170,7 @@ public abstract class Hotel {
 			i++;
 		}
 		if(!trouve){
-			System.out.println("hotel non trouvé");
+			System.out.println("hotel non trouvï¿½");
 		}
 		return rep;
 	}
