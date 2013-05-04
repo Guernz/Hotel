@@ -14,6 +14,7 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 	private JLabel labelRachat = new JLabel("Rachat");
 	private JLabel labelConstruire = new JLabel("Construire");
 	private JLabel labelConstruireGratuit = new JLabel("<html>Construction <br/>Gratuite</html>");
+	private JLabel labelInfo = new JLabel("");
 	private Bouton boutonJouer =  new Bouton("Jouer");
 	private Bouton boutonRegle = new Bouton("Règle du jeu");
 	private Bouton boutonLancerDe = new Bouton("Lancer dé");
@@ -168,6 +169,7 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 	    labelRachat.setBounds(margeLargeurBouton,5*margeHauteurBouton,largeurBouton,hauteurBouton);
 	    labelConstruire.setBounds(margeLargeurBouton,3*margeHauteurBouton,largeurBouton,hauteurBouton);
 	    labelConstruireGratuit.setBounds(margeLargeurBouton,3*margeHauteurBouton,largeurBouton,hauteurBouton);
+	    labelInfo.setBounds(1025,margeHauteurBouton/4,300,hauteurBouton*2);
 	    boutonJouer.setBounds(margeLargeurBouton,margeHauteurBouton,largeurBouton,hauteurBouton);
 	    boutonRegle.setBounds(margeLargeurBouton,3*margeHauteurBouton,largeurBouton,hauteurBouton);
 	    boutonQuitter.setBounds(margeLargeurBouton,8*margeHauteurBouton,largeurBouton,hauteurBouton);
@@ -290,6 +292,8 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 			  remove(bouton3J);
 			  remove(bouton4J);
 			  add(boutonLancerDe);
+			  labelInfo.setText("<html>Deux joueurs<br/><html>Joueur " + joueurActif + " veuillez lancer les dés.</html></html>");
+			  add(labelInfo);
 			  setContentPane(panneau);
 		  }
 		  
@@ -305,6 +309,8 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 			  remove(bouton3J);
 			  remove(bouton4J);
 			  add(boutonLancerDe);
+			  labelInfo.setText("<html>Trois joueurs<br/><html>Joueur " + joueurActif + " veuillez lancer les dés.</html></html>");
+			  add(labelInfo);
 			  setContentPane(panneau);
 		  }
 		  
@@ -322,12 +328,16 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 			  remove(bouton3J);
 			  remove(bouton4J);
 			  add(boutonLancerDe);
+			  labelInfo.setText("<html>Quatre joueurs<br/><html>Joueur " + joueurActif + " veuillez lancer les dés.</html></html>");
+			  add(labelInfo);
 			  setContentPane(panneau);
 		  }
 		  
 		  if(arg0.getSource() == boutonLancerDe){
-			  argentJoueurActuel.setText("<html>Joueur " + joueurActif + "<br/>argent " + joueurs.get(joueurActif-1).getArgentJoueur() + "</html>");
+			  argentJoueurActuel.setText("<html>Joueur " + joueurActif + "<br/>Argent " + joueurs.get(joueurActif-1).getArgentJoueur() + "</html>");
+			  labelInfo.setText("");
 			  add(argentJoueurActuel);
+			  add(labelInfo);
 			  int res;
 			  fait6 = false;
 			  res = joueurs.get(joueurActif-1).seDeplacer();
@@ -397,19 +407,23 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 		  if(arg0.getSource() == boutonContinuer){
 			  clean();
 			  cleanTitre();
+			  labelInfo.setText("<html>Joueur " + joueurActif + " veuillez lancer les dés.</html>");
 			  remove(boutonContinuer);
 			  remove(boutonAction);
 			  add(boutonLancerDe);
+			  verifierArgentJoueur();
 			  setContentPane(panneau);
 		  }
 		  
 		  if(arg0.getSource() == boutonJoueurSuivant){
 			  clean();
 			  cleanTitre();
+			  labelInfo.setText("<html>Joueur " + joueurActif + " veuillez lancer les dés.</html>");
 			  remove(boutonJoueurSuivant);
 			  remove(boutonAction);
 			  remove(argentJoueurActuel);
 			  add(boutonLancerDe);
+			  verifierArgentJoueur();
 			  setContentPane(panneau);
 			  joueurActif++;
 			  if(joueurActif>joueurs.size()){
@@ -901,5 +915,123 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 		  remove(deDouble);
 		  setContentPane(panneau);
 	}
-			  
+	
+	public void verifierArgentJoueur(){
+		for( int i=0 ; i<joueurs.size(); i++){
+			if(joueurs.get(i).getArgentJoueur()<=0){
+				clean();
+				cleanTitre();
+				remove(boutonLancerDe);
+				remove(argentJoueurActuel);
+				setContentPane(panneau);
+				int joueur1 = 0,
+					joueur2 = 0, 
+					joueur3 = 0, 
+					joueur4 = 0,
+					argentJoueur1 = 0,
+					argentJoueur2 = 0,
+					argentJoueur3 = 0,
+					argentJoueur4 = 0;
+				int egaliteJoueur = 0; // =23 pour egalite entre joueur 2 et 3, =24 pour egalite entre 2 et 4, etc...
+				boolean egalite = false;
+				switch(this.nbJoueur){
+				case 2:
+					joueur2=i+1;
+					if(i==0){
+						joueur1=2;
+						argentJoueur1 = joueurs.get(1).getArgentJoueur();
+					}
+					else{
+						joueur1=1;
+						argentJoueur1 = joueurs.get(0).getArgentJoueur();
+					}
+					labelInfo.setText("<html>La partie est terminée, le joueur " + joueur2 
+									  + " n'a plus d'argent.<br/>Classement :<br/>Premier : joueur " + joueur1 + " avec " + argentJoueur1 + " euros"
+									  + "<br/>Deuxieme : joueur " + joueur2 + " avec " + argentJoueur1 + " euros</html>");
+					break;
+				case 3:
+					joueur3=i+1;
+					if(i==0){
+						if(joueurs.get(1).getArgentJoueur()>joueurs.get(2).getArgentJoueur()){
+							joueur1=2;
+							joueur2=3;
+							argentJoueur1 = joueurs.get(1).getArgentJoueur();
+							argentJoueur2 = joueurs.get(2).getArgentJoueur();
+						}
+						if(joueurs.get(1).getArgentJoueur()<joueurs.get(2).getArgentJoueur()){
+							joueur1=3;
+							joueur2=2;
+							argentJoueur1 = joueurs.get(2).getArgentJoueur();
+							argentJoueur2 = joueurs.get(1).getArgentJoueur();
+						}
+						if(joueurs.get(1).getArgentJoueur()==joueurs.get(2).getArgentJoueur()){
+							egalite=true;
+							joueur1=2;
+							joueur2=3;
+							argentJoueur1 = joueurs.get(1).getArgentJoueur();
+							argentJoueur2 = joueurs.get(2).getArgentJoueur();
+						}
+					}
+					if(i==1){
+						if(joueurs.get(0).getArgentJoueur()>joueurs.get(2).getArgentJoueur()){
+							joueur1=1;
+							joueur2=3;
+							argentJoueur1 = joueurs.get(0).getArgentJoueur();
+							argentJoueur2 = joueurs.get(2).getArgentJoueur();
+						}
+						if(joueurs.get(0).getArgentJoueur()<joueurs.get(2).getArgentJoueur()){
+							joueur1=3;
+							joueur2=1;
+							argentJoueur1 = joueurs.get(2).getArgentJoueur();
+							argentJoueur2 = joueurs.get(0).getArgentJoueur();
+						}
+						if(joueurs.get(0).getArgentJoueur()==joueurs.get(2).getArgentJoueur()){
+							egalite=true;
+							joueur1=1;
+							joueur2=3;
+							argentJoueur1 = joueurs.get(0).getArgentJoueur();
+							argentJoueur2 = joueurs.get(2).getArgentJoueur();
+						}
+					}
+					if(i==2){
+						if(joueurs.get(1).getArgentJoueur()>joueurs.get(0).getArgentJoueur()){
+							joueur1=2;
+							joueur2=1;
+							argentJoueur1 = joueurs.get(1).getArgentJoueur();
+							argentJoueur2 = joueurs.get(0).getArgentJoueur();
+						}
+						if(joueurs.get(1).getArgentJoueur()<joueurs.get(0).getArgentJoueur()){
+							joueur1=1;
+							joueur2=2;
+							argentJoueur1 = joueurs.get(0).getArgentJoueur();
+							argentJoueur2 = joueurs.get(1).getArgentJoueur();
+						}
+						if(joueurs.get(1).getArgentJoueur()==joueurs.get(0).getArgentJoueur()){
+							egalite=true;
+							joueur1=1;
+							joueur2=2;
+							argentJoueur1 = joueurs.get(0).getArgentJoueur();
+							argentJoueur2 = joueurs.get(1).getArgentJoueur();
+						}
+					}
+					if(!egalite){
+						labelInfo.setText("<html>La partie est terminée, le joueur " + joueur3 
+										  + " n'a plus d'argent.<br/>Classement :<br/>Premier : joueur " + joueur1 + " avec " + argentJoueur1 + " euros"
+										  + "<br/>Deuxieme : joueur " + joueur2 + " avec " + argentJoueur2 + " euros"
+										  + "<br/>Troisieme : joueur " + joueur3 + " avec " + argentJoueur3 + " euros</html>");
+					}
+					else{
+						labelInfo.setText("<html>La partie est terminée, le joueur " + joueur3 
+								  + " n'a plus d'argent.<br/>Classement :<br/>Premier ex aequo : joueur " + joueur1 + " avec " + argentJoueur1 + " euros"
+								  + "<br/>Premier ex aequo : joueur " + joueur2 + " avec " + argentJoueur2 + " euros"
+								  + "<br/>Troisieme : joueur " + joueur3 + " avec " + argentJoueur3 + " euros</html>");
+					}
+					break;
+				case 4:
+					break;
+				}
+				setContentPane(panneau);
+			}
+		}
+	}		  
 }	
