@@ -754,35 +754,35 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 		remove(boutonAction);
 		for( int i = 0 ; i<hotels.size(); i++){
 			if(hotels.get(i).getJoueurProprio() == joueurActif){
-				if(hotels.get(i).getNom().equals("Fujiyama")){
+				if(hotels.get(i).getNom().equals("Fujiyama") && !hotels.get(i).getBaseLoisirConstruit()){
 					add(boutonConstruireGratuitFujiyama);
 					add(labelConstruireGratuit);
 				}
-				if(hotels.get(i).getNom().equals("Boomerang")){
+				if(hotels.get(i).getNom().equals("Boomerang") && !hotels.get(i).getBaseLoisirConstruit()){
 					add(boutonConstruireGratuitBoomerang);
 					add(labelConstruireGratuit);
 				}
-				if(hotels.get(i).getNom().equals("Etoile")){
+				if(hotels.get(i).getNom().equals("Etoile") && !hotels.get(i).getBaseLoisirConstruit()){
 					add(boutonConstruireGratuitEtoile);
 					add(labelConstruireGratuit);
 				}
-				if(hotels.get(i).getNom().equals("President")){
+				if(hotels.get(i).getNom().equals("President") && !hotels.get(i).getBaseLoisirConstruit()){
 					add(boutonConstruireGratuitPresident);
 					add(labelConstruireGratuit);
 				}
-				if(hotels.get(i).getNom().equals("Royal")){
+				if(hotels.get(i).getNom().equals("Royal") && !hotels.get(i).getBaseLoisirConstruit()){
 					add(boutonConstruireGratuitRoyal);
 					add(labelConstruireGratuit);
 				}
-				if(hotels.get(i).getNom().equals("Safari")){
+				if(hotels.get(i).getNom().equals("Safari") && !hotels.get(i).getBaseLoisirConstruit()){
 					add(boutonConstruireGratuitSafari);
 					add(labelConstruireGratuit);
 				}
-				if(hotels.get(i).getNom().equals("TajMahal")){
+				if(hotels.get(i).getNom().equals("TajMahal") && !hotels.get(i).getBaseLoisirConstruit()){
 					add(boutonConstruireGratuitTajMahal);
 					add(labelConstruireGratuit);
 				}
-				if(hotels.get(i).getNom().equals("Waikiki")){
+				if(hotels.get(i).getNom().equals("Waikiki") && !hotels.get(i).getBaseLoisirConstruit()){
 					add(boutonConstruireGratuitWaikiki);
 					add(labelConstruireGratuit);
 				}
