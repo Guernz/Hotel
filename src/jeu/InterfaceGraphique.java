@@ -807,7 +807,7 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 	
 	public void boutonConstruitHotel(String nom){
 		clean();
-		Hotel hotel = Hotel.trouveHotel(nom, hotelCase);
+		Hotel hotel = Hotel.trouveHotel(nom, hotels);
 		int resDeConstruit = hotel.construit(joueurActif,nom);
 		switch(resDeConstruit){
 		case 0:
