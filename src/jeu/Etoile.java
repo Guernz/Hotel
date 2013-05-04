@@ -122,6 +122,21 @@ public class Etoile extends Hotel{
 		}
 		return resDeConstruit;
 	}
+	
+	public static void construireGratuitAnnexe(int numJoueur){
+		if(nbAnnexeConstruite == 1){
+			annexe1Construit=true;
+		}
+		if(nbAnnexeConstruite == 2){
+			annexe2Construit=true;
+		}
+		if(nbAnnexeConstruite == 3){
+			annexe3Construit=true;
+		}
+		if(nbAnnexeConstruite == 4){
+			annexe4Construit=true;
+		}
+	}
 
 
 }

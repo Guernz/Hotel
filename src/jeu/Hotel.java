@@ -100,7 +100,6 @@ public abstract class Hotel {
 					resDeConstruit=Waikiki.construireAnnexe(numJoueur);
 				}
 			}
-			//if(this.nbAnnexeConstruite == this.nbAnnexe){
 			else{
 				resDeConstruit = De.lancerDeConstruit();
 				switch(resDeConstruit){
@@ -121,6 +120,41 @@ public abstract class Hotel {
 			}
 		}
 		return resDeConstruit;
+	}
+	
+	public void construitGratuit(int numJoueur, String nom){
+		if(!this.batimentPrincConstruit){
+				this.batimentPrincConstruit=true;
+		}
+		else{
+			if(this.nbAnnexeConstruite<this.nbAnnexe){
+				this.nbAnnexeConstruite++;
+				if(nom.equals("Fujiyama")){
+					Fujiyama.construireGratuitAnnexe(numJoueur);
+				}
+				if(nom.equals("Etoile")){
+					Etoile.construireGratuitAnnexe(numJoueur);
+				}
+				if(nom.equals("President")){
+					President.construireGratuitAnnexe(numJoueur);
+				}
+				if(nom.equals("Royal")){
+					Royal.construireGratuitAnnexe(numJoueur);
+				}
+				if(nom.equals("Safari")){
+					Safari.construireGratuitAnnexe(numJoueur);
+				}
+				if(nom.equals("TajMahal")){
+					TajMahal.construireGratuitAnnexe(numJoueur);
+				}
+				if(nom.equals("Waikiki")){
+					Waikiki.construireGratuitAnnexe(numJoueur);
+				}
+			}
+			else{
+				this.baseLoisirConstruit=true;
+			}
+		}
 	}
 	
 	public static Hotel trouveHotel(String nom, ArrayList<Hotel> liste){

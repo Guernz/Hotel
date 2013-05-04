@@ -76,5 +76,14 @@ public class Fujiyama extends Hotel{
 		return resDeConstruit;
 		
 	}
+	
+	public static void construireGratuitAnnexe(int numJoueur){
+		if(nbAnnexeConstruite == 1){
+			annexe1Construit=true;
+		}
+		if(nbAnnexeConstruite == 2){
+			annexe2Construit=true;
+		}
+	}
 
 }

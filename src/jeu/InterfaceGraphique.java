@@ -13,6 +13,7 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 	private JLabel labelAchat = new JLabel("Achat");
 	private JLabel labelRachat = new JLabel("Rachat");
 	private JLabel labelConstruire = new JLabel("Construire");
+	private JLabel labelConstruireGratuit = new JLabel("<html>Construction <br/>Gratuite</html>");
 	private Bouton boutonJouer =  new Bouton("Jouer");
 	private Bouton boutonRegle = new Bouton("Règle du jeu");
 	private Bouton boutonLancerDe = new Bouton("Lancer dé");
@@ -39,6 +40,14 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 	private Bouton boutonRachatSafari = new Bouton("Safari");
 	private Bouton boutonRachatTajMahal = new Bouton("TajMahal");
 	private Bouton boutonRachatWaikiki = new Bouton("Waikiki");
+	private Bouton boutonConstruireGratuitFujiyama = new Bouton("Fujiyama");
+	private Bouton boutonConstruireGratuitBoomerang = new Bouton("Boomerang");
+	private Bouton boutonConstruireGratuitEtoile = new Bouton("Etoile");
+	private Bouton boutonConstruireGratuitPresident = new Bouton("President");
+	private Bouton boutonConstruireGratuitRoyal = new Bouton("Royal");
+	private Bouton boutonConstruireGratuitSafari = new Bouton("Safari");
+	private Bouton boutonConstruireGratuitTajMahal = new Bouton("TajMahal");
+	private Bouton boutonConstruireGratuitWaikiki = new Bouton("Waikiki");
 	private Bouton boutonConstruitFujiyama = new Bouton("Fujiyama");
 	private Bouton boutonConstruitBoomerang = new Bouton("Boomerang");
 	private Bouton boutonConstruitEtoile = new Bouton("Etoile");
@@ -135,6 +144,14 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 	    boutonConstruitSafari.addActionListener(this);
 	    boutonConstruitTajMahal.addActionListener(this);
 	    boutonConstruitWaikiki.addActionListener(this);
+	    boutonConstruireGratuitFujiyama.addActionListener(this);
+	    boutonConstruireGratuitBoomerang.addActionListener(this);
+	    boutonConstruireGratuitEtoile.addActionListener(this);
+	    boutonConstruireGratuitPresident.addActionListener(this);
+	    boutonConstruireGratuitRoyal.addActionListener(this);
+	    boutonConstruireGratuitSafari.addActionListener(this);
+	    boutonConstruireGratuitTajMahal.addActionListener(this);
+	    boutonConstruireGratuitWaikiki.addActionListener(this);
 	    double widthTemp = width*0.85;
 	    double heightTemp = height*0.1;
 	    int margeLargeurBouton = (int) widthTemp;
@@ -150,6 +167,7 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 	    labelAchat.setBounds(margeLargeurBouton,3*margeHauteurBouton,largeurBouton,hauteurBouton);
 	    labelRachat.setBounds(margeLargeurBouton,5*margeHauteurBouton,largeurBouton,hauteurBouton);
 	    labelConstruire.setBounds(margeLargeurBouton,3*margeHauteurBouton,largeurBouton,hauteurBouton);
+	    labelConstruireGratuit.setBounds(margeLargeurBouton,3*margeHauteurBouton,largeurBouton,hauteurBouton);
 	    boutonJouer.setBounds(margeLargeurBouton,margeHauteurBouton,largeurBouton,hauteurBouton);
 	    boutonRegle.setBounds(margeLargeurBouton,3*margeHauteurBouton,largeurBouton,hauteurBouton);
 	    boutonQuitter.setBounds(margeLargeurBouton,8*margeHauteurBouton,largeurBouton,hauteurBouton);
@@ -181,6 +199,14 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 	    boutonConstruitSafari.setBounds(margeLargeurBouton,4*margeHauteurBouton+margeHauteurBouton/2,largeurBouton,hauteurBouton/2);
 	    boutonConstruitTajMahal.setBounds(margeLargeurBouton,4*margeHauteurBouton+margeHauteurBouton/2,largeurBouton,hauteurBouton/2);
 	    boutonConstruitWaikiki.setBounds(margeLargeurBouton,4*margeHauteurBouton+margeHauteurBouton/2,largeurBouton,hauteurBouton/2);
+	    boutonConstruireGratuitBoomerang.setBounds(margeLargeurBouton,4*margeHauteurBouton+margeHauteurBouton/2,largeurBouton,hauteurBouton/2);
+	    boutonConstruireGratuitEtoile.setBounds(margeLargeurBouton,5*margeHauteurBouton,largeurBouton,hauteurBouton/2);
+	    boutonConstruireGratuitFujiyama.setBounds(margeLargeurBouton,4*margeHauteurBouton,largeurBouton,hauteurBouton/2);
+	    boutonConstruireGratuitPresident.setBounds(margeLargeurBouton,5*margeHauteurBouton+margeHauteurBouton/2,largeurBouton,hauteurBouton/2);
+	    boutonConstruireGratuitRoyal.setBounds(margeLargeurBouton,6*margeHauteurBouton,largeurBouton,hauteurBouton/2);
+	    boutonConstruireGratuitSafari.setBounds(margeLargeurBouton,6*margeHauteurBouton+margeHauteurBouton/2,largeurBouton,hauteurBouton/2);
+	    boutonConstruireGratuitTajMahal.setBounds(margeLargeurBouton,7*margeHauteurBouton,largeurBouton,hauteurBouton/2);
+	    boutonConstruireGratuitWaikiki.setBounds(margeLargeurBouton,7*margeHauteurBouton+margeHauteurBouton/2,largeurBouton,hauteurBouton/2);
 	    //boutonOK.setBounds(margeLargeurBouton,3*margeHauteurBouton,largeurBouton,hauteurBouton);
 	    //boutonPasOK.setBounds(margeLargeurBouton,5*margeHauteurBouton,largeurBouton,hauteurBouton);
 	    bouton2J.setBounds(margeLargeurBouton,margeHauteurBouton,largeurBouton,hauteurBouton);
@@ -370,54 +396,20 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 		  
 		  if(arg0.getSource() == boutonContinuer){
 			  clean();
+			  cleanTitre();
 			  remove(boutonContinuer);
 			  remove(boutonAction);
-			  remove(titreBoomerang);
-			  remove(titreFujiyama);
-			  remove(titreEtoile);
-			  remove(titrePresident);
-			  remove(titreRoyal);
-			  remove(titreSafari);
-			  remove(titreTajMahal);
-			  remove(titreWaikiki);
-			  remove(de1);
-			  remove(de2);
-			  remove(de3);
-			  remove(de4);
-			  remove(de5);
-			  remove(de6);
-			  remove(deConstruit);
-			  remove(deConstruitPas);
-			  remove(deGratuit);
-			  remove(deDouble);
 			  add(boutonLancerDe);
 			  setContentPane(panneau);
 		  }
 		  
 		  if(arg0.getSource() == boutonJoueurSuivant){
 			  clean();
+			  cleanTitre();
 			  remove(boutonJoueurSuivant);
 			  remove(boutonAction);
 			  remove(argentJoueurActuel);
 			  add(boutonLancerDe);
-			  remove(titreBoomerang);
-			  remove(titreFujiyama);
-			  remove(titreEtoile);
-			  remove(titrePresident);
-			  remove(titreRoyal);
-			  remove(titreSafari);
-			  remove(titreTajMahal);
-			  remove(titreWaikiki);
-			  remove(de1);
-			  remove(de2);
-			  remove(de3);
-			  remove(de4);
-			  remove(de5);
-			  remove(de6);
-			  remove(deConstruit);
-			  remove(deConstruitPas);
-			  remove(deGratuit);
-			  remove(deDouble);
 			  setContentPane(panneau);
 			  joueurActif++;
 			  if(joueurActif>joueurs.size()){
@@ -436,7 +428,7 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 					  //entreeGratuite();
 					  break;
 				  case 3:
-					  //constructionGratuite();
+					  constructionGratuite();
 					  break;
 				  case 4:
 					  permisConstruire();
@@ -543,6 +535,38 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 			  boutonConstruitHotel("Waikiki");
 		  }
 		  
+		  if(arg0.getSource() == boutonConstruireGratuitBoomerang){
+			  boutonConstruireGratuitHotel("Boomerang");
+		  }
+		  
+		  if(arg0.getSource() == boutonConstruireGratuitFujiyama){
+			  boutonConstruireGratuitHotel("Fujiyama");
+		  }
+		  
+		  if(arg0.getSource() == boutonConstruireGratuitEtoile){
+			  boutonConstruireGratuitHotel("Etoile");
+		  }
+		  
+		  if(arg0.getSource() == boutonConstruireGratuitPresident){
+			  boutonConstruireGratuitHotel("President");
+		  }
+		  
+		  if(arg0.getSource() == boutonConstruireGratuitRoyal){
+			  boutonConstruireGratuitHotel("Royal");
+		  }
+		  
+		  if(arg0.getSource() == boutonConstruireGratuitSafari){
+			  boutonConstruireGratuitHotel("Safari");
+		  }
+		  
+		  if(arg0.getSource() == boutonConstruireGratuitTajMahal){
+			  boutonConstruireGratuitHotel("TajMahal");
+		  }
+		  
+		  if(arg0.getSource() == boutonConstruireGratuitWaikiki){
+			  boutonConstruireGratuitHotel("Waikiki");
+		  }
+		  
 		}
 	
 	public void actualiserPosition(){
@@ -614,7 +638,7 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 		hotelCase = new ArrayList<Hotel>();
 		hotelCase = Hotel.trouveHotel(joueurs.get(joueurActif-1).getPosition(),hotels);
 		for( int i = 0 ; i<hotelCase.size(); i++){
-			if(hotelCase.get(i).joueurProprio == joueurActif){
+			if(hotelCase.get(i).joueurProprio == joueurActif ){
 				add(labelConstruire);
 				remove(boutonAction);
 				if(hotelCase.get(i).getNom().equals("Fujiyama") && !hotelCase.get(i).getBaseLoisirConstruit()){
@@ -728,6 +752,46 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 		}
 	}
 	
+	public void constructionGratuite(){
+		for( int i = 0 ; i<hotels.size(); i++){
+			if(hotels.get(i).getJoueurProprio() == joueurActif){
+				if(hotels.get(i).getNom().equals("Fujiyama")){
+					add(boutonConstruireGratuitFujiyama);
+					add(labelConstruireGratuit);
+				}
+				if(hotels.get(i).getNom().equals("Boomerang")){
+					add(boutonConstruireGratuitBoomerang);
+					add(labelConstruireGratuit);
+				}
+				if(hotels.get(i).getNom().equals("Etoile")){
+					add(boutonConstruireGratuitEtoile);
+					add(labelConstruireGratuit);
+				}
+				if(hotels.get(i).getNom().equals("President")){
+					add(boutonConstruireGratuitPresident);
+					add(labelConstruireGratuit);
+				}
+				if(hotels.get(i).getNom().equals("Royal")){
+					add(boutonConstruireGratuitRoyal);
+					add(labelConstruireGratuit);
+				}
+				if(hotels.get(i).getNom().equals("Safari")){
+					add(boutonConstruireGratuitSafari);
+					add(labelConstruireGratuit);
+				}
+				if(hotels.get(i).getNom().equals("TajMahal")){
+					add(boutonConstruireGratuitTajMahal);
+					add(labelConstruireGratuit);
+				}
+				if(hotels.get(i).getNom().equals("Waikiki")){
+					add(boutonConstruireGratuitWaikiki);
+					add(labelConstruireGratuit);
+				}
+			}
+			setContentPane(panneau);
+		}
+	}
+	
 	public void boutonHotel(String nom){
 		clean();
 		Hotel hotel = Hotel.trouveHotel(nom, hotelCase);
@@ -764,6 +828,18 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 		argentJoueurActuel.setText("<html>Joueur " + joueurActif + "<br/>argent " + joueurs.get(joueurActif-1).getArgentJoueur() + "</html>");
 	}
 	
+	public void boutonConstruireGratuitHotel(String nom){
+		clean();
+		ArrayList<Hotel> hotelJoueur = new ArrayList<Hotel>();
+		for( int i=0 ; i<hotels.size() ; i++){
+			if(hotels.get(i).getJoueurProprio() == joueurActif){
+				hotelJoueur.add(hotels.get(i));
+			}
+		}
+		Hotel hotel = Hotel.trouveHotel(nom, hotelJoueur);
+		hotel.construitGratuit(joueurActif,nom);
+	}
+	
 	public void clean(){
 		remove(boutonFujiyama);
 		remove(boutonBoomerang);
@@ -784,6 +860,7 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 		remove(labelAchat);
 		remove(labelRachat);
 		remove(labelConstruire);
+		remove(labelConstruireGratuit);
 		remove(boutonAction);
 		remove(boutonConstruitFujiyama);
 		remove(boutonConstruitBoomerang);
@@ -793,7 +870,37 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 		remove(boutonConstruitSafari);
 		remove(boutonConstruitTajMahal);
 		remove(boutonConstruitWaikiki);
+		remove(boutonConstruireGratuitFujiyama);
+		remove(boutonConstruireGratuitBoomerang);
+		remove(boutonConstruireGratuitEtoile);
+		remove(boutonConstruireGratuitPresident);
+		remove(boutonConstruireGratuitRoyal);
+		remove(boutonConstruireGratuitSafari);
+		remove(boutonConstruireGratuitTajMahal);
+		remove(boutonConstruireGratuitWaikiki);
 		setContentPane(panneau);
+	}
+	
+	public void cleanTitre(){
+		remove(titreBoomerang);
+		  remove(titreFujiyama);
+		  remove(titreEtoile);
+		  remove(titrePresident);
+		  remove(titreRoyal);
+		  remove(titreSafari);
+		  remove(titreTajMahal);
+		  remove(titreWaikiki);
+		  remove(de1);
+		  remove(de2);
+		  remove(de3);
+		  remove(de4);
+		  remove(de5);
+		  remove(de6);
+		  remove(deConstruit);
+		  remove(deConstruitPas);
+		  remove(deGratuit);
+		  remove(deDouble);
+		  setContentPane(panneau);
 	}
 			  
 }	
