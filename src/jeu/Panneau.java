@@ -9,14 +9,16 @@ import javax.swing.JPanel;
 public class Panneau extends JPanel{
 	
 	String image;
-	int xBleu = -10;
-	int yBleu = -10;
-	int xVert = -10;
-	int yVert = -10;
-	int xJaune = -10;
-	int yJaune = -10;
-	int xRouge = -10;
-	int yRouge = -10;
+	int xBleu = -15;
+	int yBleu = -15;
+	int xVert = -15;
+	int yVert = -15;
+	int xJaune = -15;
+	int yJaune = -15;
+	int xRouge = -15;
+	int yRouge = -15;
+	int xMagenta = -30;
+	int yMagenta = -30;
 	
 	public Panneau(String image){
 		this.image=image;
@@ -36,6 +38,9 @@ public class Panneau extends JPanel{
 	  	  g.fillOval(this.xVert, this.yVert, 15, 15);
 	      g.setColor(Color.RED);
 	  	  g.fillOval(this.xRouge, this.yRouge, 15, 15);
+	  	  g.setColor(Color.MAGENTA);
+	  	  g.fillOval(this.xMagenta,this.yMagenta, 30, 30);
+	  	  
 	      
 	    } catch (IOException e) {
 	      e.printStackTrace();
@@ -72,5 +77,10 @@ public class Panneau extends JPanel{
 	
 	public int getYBleu(){
 		return this.yBleu;
+	}
+	
+	public void setMagenta(int x, int y){
+		this.xMagenta = x;
+		this.yMagenta = y;
 	}
 }
