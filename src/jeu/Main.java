@@ -10,16 +10,12 @@ public class Main {
 		
 		
 		/*
-		Plateau plateau = new Plateau();
-		Joueur joueur1 = new Joueur("Bleu",25000);
-		joueur1.seDeplacer();
-		joueur1.seDeplacer();
-		joueur1.seDeplacer();
-		joueur1.seDeplacer();
-		joueur1.seDeplacer();
-		joueur1.seDeplacer();
-		joueur1.seDeplacer();
-		joueur1.seDeplacer();
+		faire la fonction ajout d'une entrée a une case 
+		faire la fonction ajout entrée gratuite
+		interface graphique, afficher les infos du tour en cours
+		fonction qui verifie si tout les joueurs ont l'argent > 0
+		terminer fonction verifierSiDoitPayer() quand les entrées seront faites
+		trouver solution bug nbAnnexe
 		*/
 	}
 

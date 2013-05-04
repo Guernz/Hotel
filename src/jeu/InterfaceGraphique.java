@@ -192,13 +192,13 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 	    boutonRachatTajMahal.setBounds(margeLargeurBouton,6*margeHauteurBouton+margeHauteurBouton/2,largeurBouton,hauteurBouton/2);
 	    boutonRachatWaikiki.setBounds(margeLargeurBouton,6*margeHauteurBouton+margeHauteurBouton/2,largeurBouton,hauteurBouton/2);
 	    boutonConstruitBoomerang.setBounds(margeLargeurBouton,4*margeHauteurBouton+margeHauteurBouton/2,largeurBouton,hauteurBouton/2);
-	    boutonConstruitEtoile.setBounds(margeLargeurBouton,4*margeHauteurBouton,largeurBouton,hauteurBouton/2);
+	    boutonConstruitEtoile.setBounds(margeLargeurBouton,5*margeHauteurBouton,largeurBouton,hauteurBouton/2);
 	    boutonConstruitFujiyama.setBounds(margeLargeurBouton,4*margeHauteurBouton,largeurBouton,hauteurBouton/2);
-	    boutonConstruitPresident.setBounds(margeLargeurBouton,4*margeHauteurBouton+margeHauteurBouton/2,largeurBouton,hauteurBouton/2);
-	    boutonConstruitRoyal.setBounds(margeLargeurBouton,4*margeHauteurBouton,largeurBouton,hauteurBouton/2);
-	    boutonConstruitSafari.setBounds(margeLargeurBouton,4*margeHauteurBouton+margeHauteurBouton/2,largeurBouton,hauteurBouton/2);
-	    boutonConstruitTajMahal.setBounds(margeLargeurBouton,4*margeHauteurBouton+margeHauteurBouton/2,largeurBouton,hauteurBouton/2);
-	    boutonConstruitWaikiki.setBounds(margeLargeurBouton,4*margeHauteurBouton+margeHauteurBouton/2,largeurBouton,hauteurBouton/2);
+	    boutonConstruitPresident.setBounds(margeLargeurBouton,5*margeHauteurBouton+margeHauteurBouton/2,largeurBouton,hauteurBouton/2);
+	    boutonConstruitRoyal.setBounds(margeLargeurBouton,6*margeHauteurBouton,largeurBouton,hauteurBouton/2);
+	    boutonConstruitSafari.setBounds(margeLargeurBouton,6*margeHauteurBouton+margeHauteurBouton/2,largeurBouton,hauteurBouton/2);
+	    boutonConstruitTajMahal.setBounds(margeLargeurBouton,7*margeHauteurBouton,largeurBouton,hauteurBouton/2);
+	    boutonConstruitWaikiki.setBounds(margeLargeurBouton,7*margeHauteurBouton+margeHauteurBouton/2,largeurBouton,hauteurBouton/2);
 	    boutonConstruireGratuitBoomerang.setBounds(margeLargeurBouton,4*margeHauteurBouton+margeHauteurBouton/2,largeurBouton,hauteurBouton/2);
 	    boutonConstruireGratuitEtoile.setBounds(margeLargeurBouton,5*margeHauteurBouton,largeurBouton,hauteurBouton/2);
 	    boutonConstruireGratuitFujiyama.setBounds(margeLargeurBouton,4*margeHauteurBouton,largeurBouton,hauteurBouton/2);
@@ -635,34 +635,32 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 	}
 	
 	public void permisConstruire(){
-		hotelCase = new ArrayList<Hotel>();
-		hotelCase = Hotel.trouveHotel(joueurs.get(joueurActif-1).getPosition(),hotels);
-		for( int i = 0 ; i<hotelCase.size(); i++){
-			if(hotelCase.get(i).joueurProprio == joueurActif ){
+		remove(boutonAction);
+		for( int i = 0 ; i<hotels.size(); i++){
+			if(hotels.get(i).getJoueurProprio() == joueurActif){
 				add(labelConstruire);
-				remove(boutonAction);
-				if(hotelCase.get(i).getNom().equals("Fujiyama") && !hotelCase.get(i).getBaseLoisirConstruit()){
+				if(hotels.get(i).getNom().equals("Fujiyama") && !hotels.get(i).getBaseLoisirConstruit()){
 					add(boutonConstruitFujiyama);
 				}
-				if(hotelCase.get(i).getNom().equals("Boomerang") && !hotelCase.get(i).getBaseLoisirConstruit()){
+				if(hotels.get(i).getNom().equals("Boomerang") && !hotels.get(i).getBaseLoisirConstruit()){
 					add(boutonConstruitBoomerang);
 				}
-				if(hotelCase.get(i).getNom().equals("Etoile") && !hotelCase.get(i).getBaseLoisirConstruit()){
+				if(hotels.get(i).getNom().equals("Etoile") && !hotels.get(i).getBaseLoisirConstruit()){
 					add(boutonConstruitEtoile);
 				}
-				if(hotelCase.get(i).getNom().equals("President") && !hotelCase.get(i).getBaseLoisirConstruit()){
+				if(hotels.get(i).getNom().equals("President") && !hotels.get(i).getBaseLoisirConstruit()){
 					add(boutonConstruitPresident);
 				}
-				if(hotelCase.get(i).getNom().equals("Royal") && !hotelCase.get(i).getBaseLoisirConstruit()){
+				if(hotels.get(i).getNom().equals("Royal") && !hotels.get(i).getBaseLoisirConstruit()){
 					add(boutonConstruitRoyal);
 				}
-				if(hotelCase.get(i).getNom().equals("Safari") && !hotelCase.get(i).getBaseLoisirConstruit()){
+				if(hotels.get(i).getNom().equals("Safari") && !hotels.get(i).getBaseLoisirConstruit()){
 					add(boutonConstruitSafari);
 				}
-				if(hotelCase.get(i).getNom().equals("TajMahal") && !hotelCase.get(i).getBaseLoisirConstruit()){
+				if(hotels.get(i).getNom().equals("TajMahal") && !hotels.get(i).getBaseLoisirConstruit()){
 					add(boutonConstruitTajMahal);
 				}
-				if(hotelCase.get(i).getNom().equals("Waikiki") && !hotelCase.get(i).getBaseLoisirConstruit()){
+				if(hotels.get(i).getNom().equals("Waikiki") && !hotels.get(i).getBaseLoisirConstruit()){
 					add(boutonConstruitWaikiki);
 				}
 			}
@@ -671,11 +669,11 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 	}
 	
 	public void achat(){
+		remove(boutonAction);
 		hotelCase = new ArrayList<Hotel>();
 		hotelCase = Hotel.trouveHotel(joueurs.get(joueurActif-1).getPosition(),hotels);
 		for( numHotelCase = 0 ; numHotelCase<hotelCase.size(); numHotelCase++){
 			if(hotelCase.get(numHotelCase).getJoueurProprio() == 0) {
-				remove(boutonAction);
 				if(hotelCase.get(numHotelCase).getNom().equals("Fujiyama")){
 					add(boutonFujiyama);
 					add(labelAchat);
@@ -753,6 +751,7 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 	}
 	
 	public void constructionGratuite(){
+		remove(boutonAction);
 		for( int i = 0 ; i<hotels.size(); i++){
 			if(hotels.get(i).getJoueurProprio() == joueurActif){
 				if(hotels.get(i).getNom().equals("Fujiyama")){

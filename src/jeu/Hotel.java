@@ -12,7 +12,7 @@ public abstract class Hotel {
 	boolean batimentPrincConstruit=false;
 	int prixBaseLoisir;
 	boolean baseLoisirConstruit=false;
-	static int nbAnnexe;
+	int nbAnnexe;
 	static int nbAnnexeConstruite = 0;
 	int loyer[][];
 	int joueurProprio=0;
