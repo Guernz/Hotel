@@ -22,6 +22,14 @@ public abstract class Hotel {
 		return this.nom;
 	}
 	
+	public int getNbAnnexeConstruite() {
+		return nbAnnexeConstruite;
+	}
+
+	public void setNbAnnexeConstruite(int nbAnnexeConstruite) {
+		Hotel.nbAnnexeConstruite = nbAnnexeConstruite;
+	}
+
 	public int getPrixTerrain(){
 		return this.prixTerrain;
 	}
