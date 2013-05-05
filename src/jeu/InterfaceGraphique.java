@@ -15,8 +15,8 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 	private JLabel labelConstruire = new JLabel("Construire");
 	private JLabel labelConstruireGratuit = new JLabel("<html>Construction <br/>Gratuite</html>");
 	private Bouton boutonJouer =  new Bouton("Jouer");
-	private Bouton boutonRegle = new Bouton("Règle du jeu");
-	private Bouton boutonLancerDe = new Bouton("Lancer dé");
+	private Bouton boutonRegle = new Bouton("Rï¿½gle du jeu");
+	private Bouton boutonLancerDe = new Bouton("Lancer dï¿½");
 	private Bouton bouton2J = new Bouton("2 joueurs");
 	private Bouton bouton3J = new Bouton("3 joueurs");
 	private Bouton bouton4J = new Bouton("4 joueurs");
@@ -98,11 +98,11 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 	static int numHotelCase;
 		
 	public InterfaceGraphique(){
-		//Définit un titre pour notre fenêtre
-	    this.setTitle("Jeu de société Hotel");
-	    //Définit sa taille 
+		//Dï¿½finit un titre pour notre fenï¿½tre
+	    this.setTitle("Jeu de sociï¿½tï¿½ Hotel");
+	    //Dï¿½finit sa taille 
 	    this.setSize(width+302, height);
-	    //Nous demandons maintenant à notre objet de se positionner au centre
+	    //Nous demandons maintenant ï¿½ notre objet de se positionner au centre
 	    this.setLocationRelativeTo(null);
 	    //Termine le processus lorsqu'on clique sur la croix rouge
 	    this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);    
@@ -235,6 +235,7 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 	}
 	
 	public void actionPerformed(ActionEvent arg0) {
+
 		  if(arg0.getSource() == boutonJouer){
 			  panneau.setImage("plateau.png");
 			  remove(boutonJouer);
@@ -669,6 +670,9 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 	}
 	
 	public void achat(){
+		
+
+
 		remove(boutonAction);
 		hotelCase = new ArrayList<Hotel>();
 		hotelCase = Hotel.trouveHotel(joueurs.get(joueurActif-1).getPosition(),hotels);

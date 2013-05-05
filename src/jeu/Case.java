@@ -85,74 +85,69 @@ public class Case {
 	}
 	
 	/**
-	 * Renvoie un tableau d'entier avec les entrees disponibles pour un joueur pour chaque hotels
-	 * Renvoie -1 si aucune entree n'est disponible pour le joueur
+	 * Renvoie toutes les entrees possibles pour le joueur courant
+	 * Renvoie 0 dans un tableau d'une case si aucune entree n'est disponible pour le joueur
 	 * @return entreeRetour
 	 */
 	public int[] entreePossible(){
 		ArrayList <Hotel> listeHotel = InterfaceGraphique.hotels;
-		int[] entreeRetour = {-1};
+		int[] tableauTemp = new int[32];
+		int nbEntreeRetour = 0;
+		
+		//On récupère les numéros de case possibles pour le joueurActif
 		for(int i= 0; i < listeHotel.size(); i++){
-			if(InterfaceGraphique.joueurActif == listeHotel.get(i).joueurProprio){
+			if(InterfaceGraphique.joueurActif == listeHotel.get(i).joueurProprio && listeHotel.get(i).batimentPrincConstruit == true){
 				for(int j = 0; j < listeHotel.get(i).casePlateau.size(); j++){
 					if(listeHotel.get(i).casePlateau.get(j).entreeDispo()){
-						entreeRetour[entreeRetour.length] = listeHotel.get(i).casePlateau.get(j).num;
+						tableauTemp[nbEntreeRetour] = listeHotel.get(i).casePlateau.get(j).num;
+						nbEntreeRetour = nbEntreeRetour + 1;
 					}	
 				}
 			}
 		}
-		return entreeRetour;
-	}
-	
-	/**
-	 * Renvoie les entrees possibles pour un joueur pour un hotel precis
-	 * @param nomHotel
-	 * @return
-	 */
-	public int[] entreePossibleHotel(String nomHotel){
-		Hotel hotel = Hotel.trouveHotel(nomHotel, InterfaceGraphique.hotels);
-		int[] entreeRetour = {-1};
 		
-		for(int i = 0; i < hotel.casePlateau.size(); i++){
-			if(hotel.casePlateau.get(i).entreeDispo()){
-				entreeRetour[entreeRetour.length] = hotel.casePlateau.get(i).num;
+		//Adapte la taille du tableau au nombre d'entree et gere s'il n'y a pas d'entree disponible
+		int[] entreeRetour = null;
+		if(nbEntreeRetour == 0){
+			entreeRetour =  new int[1];
+			entreeRetour[0] = 0;
+		}
+		else{
+			entreeRetour = new int[nbEntreeRetour];
+			for(int j=0; j<nbEntreeRetour;j++){
+				entreeRetour[j] = tableauTemp[j];
 			}
 		}
 		return entreeRetour;
 	}
 	
+	
 	/**
-	 * Renvoie le nom de l'hotel pour une case donnee
-	 * @param numCase
-	 * @return nomHotel
+	 * Méthode qui vérifie que la position d'un joueur lui permet l'achat d'entree
+	 * Retourne vrai s'il est dans la zone, faux sinon
 	 */
-	public String caseHotel(int numCase){
-		ArrayList <Hotel> listeHotel = InterfaceGraphique.hotels;
-		String nomHotel = "";
-		
-		for(int i= 0; i < listeHotel.size(); i++){
-			for(int j = 0; j < listeHotel.get(i).casePlateau.size(); j++){
-				if(listeHotel.get(i).casePlateau.get(j).num == numCase){
-					nomHotel = listeHotel.get(i).nom;
-				}	
-			}
+	public boolean zoneAchatEntree(int positionJoueur){
+		if(positionJoueur<8 || positionJoueur>26){
+			return true;
 		}
-		return nomHotel;
+		else{
+			return false;
+		}
 	}
-		
+	
+	//int positionJoueur = InterfaceGraphique.joueurs.get(InterfaceGraphique.joueurActif).position;
 	/**
-	 * Ajoute une entrée sur la case correspondante pour le joueur qui lance cette action
+	 * Ajoute une entree sur la case renseignee en entree pour un hotel precis
+	 * On precise le nom de l'hotel pour savoir sur quel cote on la place
 	 */
-	public void placerEntree(){
-		//Affichage graphique des entrees possibles pour le joueur
-			//on affiche les numéros de cases possibles (fonction entree possible)
-		
-		//L'utilisateur clique sur l'entree a acheter
-		int numCaseEntree = 0;	
-			//affichage du prix de l'entree
-			
-		caseHotel(numCaseEntree);
-		
+	public void placerEntree(int caseEntree, String nomHotel){
+		Hotel hotelConcerne = Hotel.trouveHotel(nomHotel, InterfaceGraphique.hotels);
+		if(hotelConcerne.emplacementExt == true){
+			Plateau.plateau.get(caseEntree).entreeExt = true;
+		}
+		else{
+			Plateau.plateau.get(caseEntree).entreeInt = true;
+		}
 		
 	}
 	

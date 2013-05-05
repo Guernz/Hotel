@@ -10,11 +10,11 @@ public class Main {
 		
 		
 		/*
-		faire la fonction ajout d'une entrée a une case 
-		faire la fonction ajout entrée gratuite
+		faire la fonction ajout d'une entrï¿½e a une case 
+		faire la fonction ajout entrï¿½e gratuite
 		interface graphique, afficher les infos du tour en cours
 		fonction qui verifie si tout les joueurs ont l'argent > 0
-		terminer fonction verifierSiDoitPayer() quand les entrées seront faites
+		terminer fonction verifierSiDoitPayer() quand les entrï¿½es seront faites
 		trouver solution bug nbAnnexe
 		*/
 	}
