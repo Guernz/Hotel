@@ -14,6 +14,8 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 	private JLabel labelRachat = new JLabel("Rachat");
 	private JLabel labelConstruire = new JLabel("Construire");
 	private JLabel labelConstruireGratuit = new JLabel("<html>Construction <br/>Gratuite</html>");
+	private JLabel labelEntree = new JLabel("Poser une entr�e :");
+	private JLabel labelInfo = new JLabel("");
 	private Bouton boutonJouer =  new Bouton("Jouer");
 	private Bouton boutonRegle = new Bouton("Règle du jeu");
 	private Bouton boutonLancerDe = new Bouton("Lancer dé");
@@ -70,6 +72,35 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 	private static Bouton de4 = new Bouton("4.png",0);
 	private static Bouton de5 = new Bouton("5.png",0);
 	private static Bouton de6 = new Bouton("6.png",0);
+	private Bouton bouton2 = new Bouton("2");
+	private Bouton bouton3 = new Bouton("3");
+	private Bouton bouton4 = new Bouton("4");
+	private Bouton bouton5 = new Bouton("5");
+	private Bouton bouton6 = new Bouton("6");
+	private Bouton bouton7 = new Bouton("7");
+	private Bouton bouton9 = new Bouton("9");
+	private Bouton bouton10 = new Bouton("10");
+	private Bouton bouton11 = new Bouton("11");
+	private Bouton bouton12 = new Bouton("12");
+	private Bouton bouton13 = new Bouton("13");
+	private Bouton bouton14 = new Bouton("14");
+	private Bouton bouton15 = new Bouton("15");
+	private Bouton bouton16 = new Bouton("16");
+	private Bouton bouton17 = new Bouton("17");
+	private Bouton bouton18 = new Bouton("18");
+	private Bouton bouton19 = new Bouton("19");
+	private Bouton bouton20 = new Bouton("20");
+	private Bouton bouton21 = new Bouton("21");
+	private Bouton bouton22 = new Bouton("22");
+	private Bouton bouton23 = new Bouton("23");
+	private Bouton bouton24 = new Bouton("24");
+	private Bouton bouton25 = new Bouton("25");
+	private Bouton bouton26 = new Bouton("26");
+	private Bouton bouton27 = new Bouton("27");
+	private Bouton bouton28 = new Bouton("28");
+	private Bouton bouton29 = new Bouton("29");
+	private Bouton bouton30 = new Bouton("30");
+	private Bouton bouton31 = new Bouton("31");
 	private Bouton deConstruit = new Bouton("oui.png",0);
 	private Bouton deConstruitPas = new Bouton("non.png",0);
 	private Bouton deGratuit = new Bouton("gratuit.png",0);
@@ -152,6 +183,35 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 	    boutonConstruireGratuitSafari.addActionListener(this);
 	    boutonConstruireGratuitTajMahal.addActionListener(this);
 	    boutonConstruireGratuitWaikiki.addActionListener(this);
+	    bouton2.addActionListener(this);
+	    bouton3.addActionListener(this);
+	    bouton4.addActionListener(this);
+	    bouton5.addActionListener(this);
+	    bouton6.addActionListener(this);
+	    bouton7.addActionListener(this);
+	    bouton9.addActionListener(this);
+	    bouton10.addActionListener(this);
+	    bouton11.addActionListener(this);
+	    bouton12.addActionListener(this);
+	    bouton13.addActionListener(this);
+	    bouton14.addActionListener(this);
+	    bouton15.addActionListener(this);
+	    bouton16.addActionListener(this);
+	    bouton17.addActionListener(this);
+	    bouton18.addActionListener(this);
+	    bouton19.addActionListener(this);
+	    bouton20.addActionListener(this);
+	    bouton21.addActionListener(this);
+	    bouton22.addActionListener(this);
+	    bouton23.addActionListener(this);
+	    bouton24.addActionListener(this);
+	    bouton25.addActionListener(this);
+	    bouton26.addActionListener(this);
+	    bouton27.addActionListener(this);
+	    bouton28.addActionListener(this);
+	    bouton29.addActionListener(this);
+	    bouton30.addActionListener(this);
+	    bouton31.addActionListener(this);
 	    double widthTemp = width*0.85;
 	    double heightTemp = height*0.1;
 	    int margeLargeurBouton = (int) widthTemp;
@@ -161,13 +221,15 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 	    int hauteurBouton = margeHauteurBouton;
 
 	    this.add(boutonJouer);
-	    this.add(boutonRegle);
+	    //this.add(boutonRegle);
 	    this.add(boutonQuitter);
 	    argentJoueurActuel.setBounds(margeLargeurBouton,margeHauteurBouton/4,largeurBouton,hauteurBouton/2);
 	    labelAchat.setBounds(margeLargeurBouton,3*margeHauteurBouton,largeurBouton,hauteurBouton);
 	    labelRachat.setBounds(margeLargeurBouton,5*margeHauteurBouton,largeurBouton,hauteurBouton);
 	    labelConstruire.setBounds(margeLargeurBouton,3*margeHauteurBouton,largeurBouton,hauteurBouton);
 	    labelConstruireGratuit.setBounds(margeLargeurBouton,3*margeHauteurBouton,largeurBouton,hauteurBouton);
+	    labelEntree.setBounds(margeLargeurBouton,2*margeHauteurBouton,largeurBouton,hauteurBouton);
+	    labelInfo.setBounds(1025,margeHauteurBouton/4,300,hauteurBouton*2);
 	    boutonJouer.setBounds(margeLargeurBouton,margeHauteurBouton,largeurBouton,hauteurBouton);
 	    boutonRegle.setBounds(margeLargeurBouton,3*margeHauteurBouton,largeurBouton,hauteurBouton);
 	    boutonQuitter.setBounds(margeLargeurBouton,8*margeHauteurBouton,largeurBouton,hauteurBouton);
@@ -207,8 +269,6 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 	    boutonConstruireGratuitSafari.setBounds(margeLargeurBouton,6*margeHauteurBouton+margeHauteurBouton/2,largeurBouton,hauteurBouton/2);
 	    boutonConstruireGratuitTajMahal.setBounds(margeLargeurBouton,7*margeHauteurBouton,largeurBouton,hauteurBouton/2);
 	    boutonConstruireGratuitWaikiki.setBounds(margeLargeurBouton,7*margeHauteurBouton+margeHauteurBouton/2,largeurBouton,hauteurBouton/2);
-	    //boutonOK.setBounds(margeLargeurBouton,3*margeHauteurBouton,largeurBouton,hauteurBouton);
-	    //boutonPasOK.setBounds(margeLargeurBouton,5*margeHauteurBouton,largeurBouton,hauteurBouton);
 	    bouton2J.setBounds(margeLargeurBouton,margeHauteurBouton,largeurBouton,hauteurBouton);
 	    bouton3J.setBounds(margeLargeurBouton,3*margeHauteurBouton,largeurBouton,hauteurBouton);
 	    bouton4J.setBounds(margeLargeurBouton,5*margeHauteurBouton,largeurBouton,hauteurBouton);
@@ -230,9 +290,360 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 	    deConstruitPas.setBounds(1225,180,50,50);
 	    deDouble.setBounds(1225,180,50,50);
 	    deGratuit.setBounds(1225,180,50,50);
+	    bouton2.setBounds(margeLargeurBouton-50,3*margeHauteurBouton,50,50);
+	    bouton3.setBounds(margeLargeurBouton,3*margeHauteurBouton,50,50);
+	    bouton4.setBounds(margeLargeurBouton+50,3*margeHauteurBouton,50,50);
+	    bouton5.setBounds(margeLargeurBouton+100,3*margeHauteurBouton,50,50);
+	    bouton6.setBounds(margeLargeurBouton-50,3*margeHauteurBouton+50,50,50);
+	    bouton7.setBounds(margeLargeurBouton,3*margeHauteurBouton+50,50,50);
+	    bouton9.setBounds(margeLargeurBouton+50,3*margeHauteurBouton+50,50,50);
+	    bouton10.setBounds(margeLargeurBouton+100,3*margeHauteurBouton+50,50,50);
+	    bouton11.setBounds(margeLargeurBouton-50,3*margeHauteurBouton+100,50,50);
+	    bouton12.setBounds(margeLargeurBouton,3*margeHauteurBouton+100,50,50);
+	    bouton13.setBounds(margeLargeurBouton+50,3*margeHauteurBouton+100,50,50);
+	    bouton14.setBounds(margeLargeurBouton+100,3*margeHauteurBouton+100,50,50);
+	    bouton15.setBounds(margeLargeurBouton-50,3*margeHauteurBouton+150,50,50);
+	    bouton16.setBounds(margeLargeurBouton,3*margeHauteurBouton+150,50,50);
+	    bouton17.setBounds(margeLargeurBouton+50,3*margeHauteurBouton+150,50,50);
+	    bouton18.setBounds(margeLargeurBouton+100,3*margeHauteurBouton+150,50,50);
+	    bouton19.setBounds(margeLargeurBouton-50,3*margeHauteurBouton+200,50,50);
+	    bouton20.setBounds(margeLargeurBouton,3*margeHauteurBouton+200,50,50);
+	    bouton21.setBounds(margeLargeurBouton+50,3*margeHauteurBouton+200,50,50);
+	    bouton22.setBounds(margeLargeurBouton+100,3*margeHauteurBouton+200,50,50);
+	    bouton23.setBounds(margeLargeurBouton-50,3*margeHauteurBouton+250,50,50);
+	    bouton24.setBounds(margeLargeurBouton,3*margeHauteurBouton+250,50,50);
+	    bouton25.setBounds(margeLargeurBouton+50,3*margeHauteurBouton+250,50,50);
+	    bouton26.setBounds(margeLargeurBouton+100,3*margeHauteurBouton+250,50,50);
+	    bouton27.setBounds(margeLargeurBouton-50,3*margeHauteurBouton+300,50,50);
+	    bouton28.setBounds(margeLargeurBouton,3*margeHauteurBouton+300,50,50);
+	    bouton29.setBounds(margeLargeurBouton+50,3*margeHauteurBouton+300,50,50);
+	    bouton30.setBounds(margeLargeurBouton+100,3*margeHauteurBouton+300,50,50);
+	    bouton31.setBounds(margeLargeurBouton-50,3*margeHauteurBouton+350,50,50);
 	    //On rend la fenetre visible
 	    this.setVisible(true);
+	    
+	    bouton2.addMouseListener(new java.awt.event.MouseAdapter() {
+		    public void mouseEntered(java.awt.event.MouseEvent evt) {
+		    	panneau.setMagenta(Plateau.plateau.get(1).getX()-7,Plateau.plateau.get(1).getY()-7);
+		    	setContentPane(panneau);
+		    }
+		    public void mouseExited(java.awt.event.MouseEvent evt) {
+		    	panneau.setMagenta(-30,-30);
+		    	setContentPane(panneau);
+		    }
+		});
+	    
+	    bouton3.addMouseListener(new java.awt.event.MouseAdapter() {
+		    public void mouseEntered(java.awt.event.MouseEvent evt) {
+		    	panneau.setMagenta(Plateau.plateau.get(2).getX()-7,Plateau.plateau.get(2).getY()-7);
+		    	setContentPane(panneau);
+		    }
+		    public void mouseExited(java.awt.event.MouseEvent evt) {
+		    	panneau.setMagenta(-30,-30);
+		    	setContentPane(panneau);
+		    }
+		});
+	    
+	    bouton4.addMouseListener(new java.awt.event.MouseAdapter() {
+		    public void mouseEntered(java.awt.event.MouseEvent evt) {
+		    	panneau.setMagenta(Plateau.plateau.get(3).getX()-7,Plateau.plateau.get(3).getY()-7);
+		    	setContentPane(panneau);
+		    }
+		    public void mouseExited(java.awt.event.MouseEvent evt) {
+		    	panneau.setMagenta(-30,-30);
+		    	setContentPane(panneau);
+		    }
+		});
+	    
+	    bouton5.addMouseListener(new java.awt.event.MouseAdapter() {
+		    public void mouseEntered(java.awt.event.MouseEvent evt) {
+		    	panneau.setMagenta(Plateau.plateau.get(4).getX()-7,Plateau.plateau.get(4).getY()-7);
+		    	setContentPane(panneau);
+		    }
+		    public void mouseExited(java.awt.event.MouseEvent evt) {
+		    	panneau.setMagenta(-30,-30);
+		    	setContentPane(panneau);
+		    }
+		});
+	    
+	    bouton6.addMouseListener(new java.awt.event.MouseAdapter() {
+		    public void mouseEntered(java.awt.event.MouseEvent evt) {
+		    	panneau.setMagenta(Plateau.plateau.get(5).getX()-7,Plateau.plateau.get(5).getY()-7);
+		    	setContentPane(panneau);
+		    }
+		    public void mouseExited(java.awt.event.MouseEvent evt) {
+		    	panneau.setMagenta(-30,-30);
+		    	setContentPane(panneau);
+		    }
+		});
+	    
+	    bouton7.addMouseListener(new java.awt.event.MouseAdapter() {
+		    public void mouseEntered(java.awt.event.MouseEvent evt) {
+		    	panneau.setMagenta(Plateau.plateau.get(6).getX()-7,Plateau.plateau.get(6).getY()-7);
+		    	setContentPane(panneau);
+		    }
+		    public void mouseExited(java.awt.event.MouseEvent evt) {
+		    	panneau.setMagenta(-30,-30);
+		    	setContentPane(panneau);
+		    }
+		});
+	    
+	    bouton9.addMouseListener(new java.awt.event.MouseAdapter() {
+		    public void mouseEntered(java.awt.event.MouseEvent evt) {
+		    	panneau.setMagenta(Plateau.plateau.get(8).getX()-7,Plateau.plateau.get(8).getY()-7);
+		    	setContentPane(panneau);
+		    }
+		    public void mouseExited(java.awt.event.MouseEvent evt) {
+		    	panneau.setMagenta(-30,-30);
+		    	setContentPane(panneau);
+		    }
+		});
+	    
+	    bouton10.addMouseListener(new java.awt.event.MouseAdapter() {
+		    public void mouseEntered(java.awt.event.MouseEvent evt) {
+		    	panneau.setMagenta(Plateau.plateau.get(9).getX()-7,Plateau.plateau.get(9).getY()-7);
+		    	setContentPane(panneau);
+		    }
+		    public void mouseExited(java.awt.event.MouseEvent evt) {
+		    	panneau.setMagenta(-30,-30);
+		    	setContentPane(panneau);
+		    }
+		});
+	    
+	    bouton11.addMouseListener(new java.awt.event.MouseAdapter() {
+		    public void mouseEntered(java.awt.event.MouseEvent evt) {
+		    	panneau.setMagenta(Plateau.plateau.get(10).getX()-7,Plateau.plateau.get(10).getY()-7);
+		    	setContentPane(panneau);
+		    }
+		    public void mouseExited(java.awt.event.MouseEvent evt) {
+		    	panneau.setMagenta(-30,-30);
+		    	setContentPane(panneau);
+		    }
+		});
+	    
+	    bouton12.addMouseListener(new java.awt.event.MouseAdapter() {
+		    public void mouseEntered(java.awt.event.MouseEvent evt) {
+		    	panneau.setMagenta(Plateau.plateau.get(11).getX()-7,Plateau.plateau.get(11).getY()-7);
+		    	setContentPane(panneau);
+		    }
+		    public void mouseExited(java.awt.event.MouseEvent evt) {
+		    	panneau.setMagenta(-30,-30);
+		    	setContentPane(panneau);
+		    }
+		});
+	    
+	    bouton13.addMouseListener(new java.awt.event.MouseAdapter() {
+		    public void mouseEntered(java.awt.event.MouseEvent evt) {
+		    	panneau.setMagenta(Plateau.plateau.get(12).getX()-7,Plateau.plateau.get(12).getY()-7);
+		    	setContentPane(panneau);
+		    }
+		    public void mouseExited(java.awt.event.MouseEvent evt) {
+		    	panneau.setMagenta(-30,-30);
+		    	setContentPane(panneau);
+		    }
+		});
+	    
+	    bouton14.addMouseListener(new java.awt.event.MouseAdapter() {
+		    public void mouseEntered(java.awt.event.MouseEvent evt) {
+		    	panneau.setMagenta(Plateau.plateau.get(13).getX()-7,Plateau.plateau.get(13).getY()-7);
+		    	setContentPane(panneau);
+		    }
+		    public void mouseExited(java.awt.event.MouseEvent evt) {
+		    	panneau.setMagenta(-30,-30);
+		    	setContentPane(panneau);
+		    }
+		});
+	    
+	    bouton15.addMouseListener(new java.awt.event.MouseAdapter() {
+		    public void mouseEntered(java.awt.event.MouseEvent evt) {
+		    	panneau.setMagenta(Plateau.plateau.get(14).getX()-7,Plateau.plateau.get(14).getY()-7);
+		    	setContentPane(panneau);
+		    }
+		    public void mouseExited(java.awt.event.MouseEvent evt) {
+		    	panneau.setMagenta(-30,-30);
+		    	setContentPane(panneau);
+		    }
+		});
+	    
+	    bouton16.addMouseListener(new java.awt.event.MouseAdapter() {
+		    public void mouseEntered(java.awt.event.MouseEvent evt) {
+		    	panneau.setMagenta(Plateau.plateau.get(15).getX()-7,Plateau.plateau.get(15).getY()-7);
+		    	setContentPane(panneau);
+		    }
+		    public void mouseExited(java.awt.event.MouseEvent evt) {
+		    	panneau.setMagenta(-30,-30);
+		    	setContentPane(panneau);
+		    }
+		});
+	    
+	    bouton17.addMouseListener(new java.awt.event.MouseAdapter() {
+		    public void mouseEntered(java.awt.event.MouseEvent evt) {
+		    	panneau.setMagenta(Plateau.plateau.get(16).getX()-7,Plateau.plateau.get(16).getY()-7);
+		    	setContentPane(panneau);
+		    }
+		    public void mouseExited(java.awt.event.MouseEvent evt) {
+		    	panneau.setMagenta(-30,-30);
+		    	setContentPane(panneau);
+		    }
+		});
+	    
+	    bouton18.addMouseListener(new java.awt.event.MouseAdapter() {
+		    public void mouseEntered(java.awt.event.MouseEvent evt) {
+		    	panneau.setMagenta(Plateau.plateau.get(17).getX()-7,Plateau.plateau.get(17).getY()-7);
+		    	setContentPane(panneau);
+		    }
+		    public void mouseExited(java.awt.event.MouseEvent evt) {
+		    	panneau.setMagenta(-30,-30);
+		    	setContentPane(panneau);
+		    }
+		});
+	    
+	    bouton19.addMouseListener(new java.awt.event.MouseAdapter() {
+		    public void mouseEntered(java.awt.event.MouseEvent evt) {
+		    	panneau.setMagenta(Plateau.plateau.get(18).getX()-7,Plateau.plateau.get(18).getY()-7);
+		    	setContentPane(panneau);
+		    }
+		    public void mouseExited(java.awt.event.MouseEvent evt) {
+		    	panneau.setMagenta(-30,-30);
+		    	setContentPane(panneau);
+		    }
+		});
+	    
+	    bouton20.addMouseListener(new java.awt.event.MouseAdapter() {
+		    public void mouseEntered(java.awt.event.MouseEvent evt) {
+		    	panneau.setMagenta(Plateau.plateau.get(19).getX()-7,Plateau.plateau.get(19).getY()-7);
+		    	setContentPane(panneau);
+		    }
+		    public void mouseExited(java.awt.event.MouseEvent evt) {
+		    	panneau.setMagenta(-30,-30);
+		    	setContentPane(panneau);
+		    }
+		});
+	    
+	    bouton21.addMouseListener(new java.awt.event.MouseAdapter() {
+		    public void mouseEntered(java.awt.event.MouseEvent evt) {
+		    	panneau.setMagenta(Plateau.plateau.get(20).getX()-7,Plateau.plateau.get(20).getY()-7);
+		    	setContentPane(panneau);
+		    }
+		    public void mouseExited(java.awt.event.MouseEvent evt) {
+		    	panneau.setMagenta(-30,-30);
+		    	setContentPane(panneau);
+		    }
+		});
+	    
+	    bouton22.addMouseListener(new java.awt.event.MouseAdapter() {
+		    public void mouseEntered(java.awt.event.MouseEvent evt) {
+		    	panneau.setMagenta(Plateau.plateau.get(21).getX()-7,Plateau.plateau.get(21).getY()-7);
+		    	setContentPane(panneau);
+		    }
+		    public void mouseExited(java.awt.event.MouseEvent evt) {
+		    	panneau.setMagenta(-30,-30);
+		    	setContentPane(panneau);
+		    }
+		});
+	    
+	    bouton23.addMouseListener(new java.awt.event.MouseAdapter() {
+		    public void mouseEntered(java.awt.event.MouseEvent evt) {
+		    	panneau.setMagenta(Plateau.plateau.get(22).getX()-7,Plateau.plateau.get(22).getY()-7);
+		    	setContentPane(panneau);
+		    }
+		    public void mouseExited(java.awt.event.MouseEvent evt) {
+		    	panneau.setMagenta(-30,-30);
+		    	setContentPane(panneau);
+		    }
+		});
+	    
+	    bouton24.addMouseListener(new java.awt.event.MouseAdapter() {
+		    public void mouseEntered(java.awt.event.MouseEvent evt) {
+		    	panneau.setMagenta(Plateau.plateau.get(23).getX()-7,Plateau.plateau.get(23).getY()-7);
+		    	setContentPane(panneau);
+		    }
+		    public void mouseExited(java.awt.event.MouseEvent evt) {
+		    	panneau.setMagenta(-30,-30);
+		    	setContentPane(panneau);
+		    }
+		});
+	    
+	    bouton25.addMouseListener(new java.awt.event.MouseAdapter() {
+		    public void mouseEntered(java.awt.event.MouseEvent evt) {
+		    	panneau.setMagenta(Plateau.plateau.get(24).getX()-7,Plateau.plateau.get(24).getY()-7);
+		    	setContentPane(panneau);
+		    }
+		    public void mouseExited(java.awt.event.MouseEvent evt) {
+		    	panneau.setMagenta(-30,-30);
+		    	setContentPane(panneau);
+		    }
+		});
+	    
+	    bouton26.addMouseListener(new java.awt.event.MouseAdapter() {
+		    public void mouseEntered(java.awt.event.MouseEvent evt) {
+		    	panneau.setMagenta(Plateau.plateau.get(25).getX()-7,Plateau.plateau.get(25).getY()-7);
+		    	setContentPane(panneau);
+		    }
+		    public void mouseExited(java.awt.event.MouseEvent evt) {
+		    	panneau.setMagenta(-30,-30);
+		    	setContentPane(panneau);
+		    }
+		});
+	    
+	    bouton27.addMouseListener(new java.awt.event.MouseAdapter() {
+		    public void mouseEntered(java.awt.event.MouseEvent evt) {
+		    	panneau.setMagenta(Plateau.plateau.get(26).getX()-7,Plateau.plateau.get(26).getY()-7);
+		    	setContentPane(panneau);
+		    }
+		    public void mouseExited(java.awt.event.MouseEvent evt) {
+		    	panneau.setMagenta(-30,-30);
+		    	setContentPane(panneau);
+		    }
+		});
+	    
+	    bouton28.addMouseListener(new java.awt.event.MouseAdapter() {
+		    public void mouseEntered(java.awt.event.MouseEvent evt) {
+		    	panneau.setMagenta(Plateau.plateau.get(27).getX()-7,Plateau.plateau.get(27).getY()-7);
+		    	setContentPane(panneau);
+		    }
+		    public void mouseExited(java.awt.event.MouseEvent evt) {
+		    	panneau.setMagenta(-30,-30);
+		    	setContentPane(panneau);
+		    }
+		});
+	    
+	    bouton29.addMouseListener(new java.awt.event.MouseAdapter() {
+		    public void mouseEntered(java.awt.event.MouseEvent evt) {
+		    	panneau.setMagenta(Plateau.plateau.get(28).getX()-7,Plateau.plateau.get(28).getY()-7);
+		    	setContentPane(panneau);
+		    }
+		    public void mouseExited(java.awt.event.MouseEvent evt) {
+		    	panneau.setMagenta(-30,-30);
+		    	setContentPane(panneau);
+		    }
+		});
+	    
+	    bouton30.addMouseListener(new java.awt.event.MouseAdapter() {
+		    public void mouseEntered(java.awt.event.MouseEvent evt) {
+		    	panneau.setMagenta(Plateau.plateau.get(29).getX()-7,Plateau.plateau.get(29).getY()-7);
+		    	setContentPane(panneau);
+		    }
+		    public void mouseExited(java.awt.event.MouseEvent evt) {
+		    	panneau.setMagenta(-30,-30);
+		    	setContentPane(panneau);
+		    }
+		});
+	    
+	    bouton31.addMouseListener(new java.awt.event.MouseAdapter() {
+		    public void mouseEntered(java.awt.event.MouseEvent evt) {
+		    	panneau.setMagenta(Plateau.plateau.get(30).getX()-7,Plateau.plateau.get(30).getY()-7);
+		    	setContentPane(panneau);
+		    }
+		    public void mouseExited(java.awt.event.MouseEvent evt) {
+		    	panneau.setMagenta(-30,-30);
+		    	setContentPane(panneau);
+		    }
+		});
+	    
 	}
+	
+	
 	
 	public void actionPerformed(ActionEvent arg0) {
 
@@ -258,24 +669,7 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 		  if(arg0.getSource() == boutonRegle){
 			  
 		  }
-		  /*
-		  if(arg0.getSource() == boutonOK){
-			  remove(boutonOK);
-			  remove(boutonPasOK);
-			  setContentPane(panneau);
-			  hotelCase.get(numHotelCase).achatHotel(joueurActif);
-			  System.out.println("Le joueur " + joueurActif + " a achete l'hotel " + hotelCase.get(numHotelCase).getNom());
-			  
-		  }
 		  
-		  if(arg0.getSource() == boutonPasOK) {
-			  remove(boutonOK);
-			  remove(boutonPasOK);
-			  setContentPane(panneau);
-			  System.out.println("Le joueur " + joueurActif + " n'a pas achete l'hotel " + hotelCase.get(numHotelCase).getNom());
-			  
-		  }
-		  */
 		  if(arg0.getSource() == boutonQuitter){
 			  System.exit(0);
 
@@ -291,6 +685,8 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 			  remove(bouton3J);
 			  remove(bouton4J);
 			  add(boutonLancerDe);
+			  labelInfo.setText("<html>Deux joueurs<br/><html>Joueur " + joueurActif + " veuillez lancer les d�s.</html></html>");
+			  add(labelInfo);
 			  setContentPane(panneau);
 		  }
 		  
@@ -306,6 +702,8 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 			  remove(bouton3J);
 			  remove(bouton4J);
 			  add(boutonLancerDe);
+			  labelInfo.setText("<html>Trois joueurs<br/><html>Joueur " + joueurActif + " veuillez lancer les d�s.</html></html>");
+			  add(labelInfo);
 			  setContentPane(panneau);
 		  }
 		  
@@ -323,12 +721,15 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 			  remove(bouton3J);
 			  remove(bouton4J);
 			  add(boutonLancerDe);
+			  labelInfo.setText("<html>Quatre joueurs<br/><html>Joueur " + joueurActif + " veuillez lancer les d�s.</html></html>");
+			  add(labelInfo);
 			  setContentPane(panneau);
 		  }
 		  
 		  if(arg0.getSource() == boutonLancerDe){
-			  argentJoueurActuel.setText("<html>Joueur " + joueurActif + "<br/>argent " + joueurs.get(joueurActif-1).getArgentJoueur() + "</html>");
+			  labelInfo.setText("");
 			  add(argentJoueurActuel);
+			  add(labelInfo);
 			  int res;
 			  fait6 = false;
 			  res = joueurs.get(joueurActif-1).seDeplacer();
@@ -391,26 +792,30 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 					}
 				}
 			  actualiserPosition();
-			  argentJoueurActuel.setText("<html>Joueur " + joueurActif + "(" + joueurs.get(joueurActif-1).getCouleur() + ")" + "<br/>argent " + joueurs.get(joueurActif-1).getArgentJoueur() + "</html>");
+			  argentJoueurActuel.setText("<html>Joueur " + joueurActif + "(" + joueurs.get(joueurActif-1).getCouleur() + ")" + "<br/>Argent " + joueurs.get(joueurActif-1).getArgentJoueur() + "</html>");
 			  setContentPane(panneau);			  
 		  }
 		  
 		  if(arg0.getSource() == boutonContinuer){
 			  clean();
 			  cleanTitre();
+			  labelInfo.setText("<html>Joueur " + joueurActif + " veuillez lancer les d�s.</html>");
 			  remove(boutonContinuer);
 			  remove(boutonAction);
 			  add(boutonLancerDe);
+			  verifierArgentJoueur();
 			  setContentPane(panneau);
 		  }
 		  
 		  if(arg0.getSource() == boutonJoueurSuivant){
 			  clean();
 			  cleanTitre();
+			  labelInfo.setText("<html>Joueur " + joueurActif + " veuillez lancer les d�s.</html>");
 			  remove(boutonJoueurSuivant);
 			  remove(boutonAction);
 			  remove(argentJoueurActuel);
 			  add(boutonLancerDe);
+			  verifierArgentJoueur();
 			  setContentPane(panneau);
 			  joueurActif++;
 			  if(joueurActif>joueurs.size()){
@@ -757,35 +1162,35 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 		remove(boutonAction);
 		for( int i = 0 ; i<hotels.size(); i++){
 			if(hotels.get(i).getJoueurProprio() == joueurActif){
-				if(hotels.get(i).getNom().equals("Fujiyama")){
+				if(hotels.get(i).getNom().equals("Fujiyama") && !hotels.get(i).getBaseLoisirConstruit()){
 					add(boutonConstruireGratuitFujiyama);
 					add(labelConstruireGratuit);
 				}
-				if(hotels.get(i).getNom().equals("Boomerang")){
+				if(hotels.get(i).getNom().equals("Boomerang") && !hotels.get(i).getBaseLoisirConstruit()){
 					add(boutonConstruireGratuitBoomerang);
 					add(labelConstruireGratuit);
 				}
-				if(hotels.get(i).getNom().equals("Etoile")){
+				if(hotels.get(i).getNom().equals("Etoile") && !hotels.get(i).getBaseLoisirConstruit()){
 					add(boutonConstruireGratuitEtoile);
 					add(labelConstruireGratuit);
 				}
-				if(hotels.get(i).getNom().equals("President")){
+				if(hotels.get(i).getNom().equals("President") && !hotels.get(i).getBaseLoisirConstruit()){
 					add(boutonConstruireGratuitPresident);
 					add(labelConstruireGratuit);
 				}
-				if(hotels.get(i).getNom().equals("Royal")){
+				if(hotels.get(i).getNom().equals("Royal") && !hotels.get(i).getBaseLoisirConstruit()){
 					add(boutonConstruireGratuitRoyal);
 					add(labelConstruireGratuit);
 				}
-				if(hotels.get(i).getNom().equals("Safari")){
+				if(hotels.get(i).getNom().equals("Safari") && !hotels.get(i).getBaseLoisirConstruit()){
 					add(boutonConstruireGratuitSafari);
 					add(labelConstruireGratuit);
 				}
-				if(hotels.get(i).getNom().equals("TajMahal")){
+				if(hotels.get(i).getNom().equals("TajMahal") && !hotels.get(i).getBaseLoisirConstruit()){
 					add(boutonConstruireGratuitTajMahal);
 					add(labelConstruireGratuit);
 				}
-				if(hotels.get(i).getNom().equals("Waikiki")){
+				if(hotels.get(i).getNom().equals("Waikiki") && !hotels.get(i).getBaseLoisirConstruit()){
 					add(boutonConstruireGratuitWaikiki);
 					add(labelConstruireGratuit);
 				}
@@ -798,19 +1203,19 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 		clean();
 		Hotel hotel = Hotel.trouveHotel(nom, hotelCase);
 		hotel.achatHotel(joueurActif);
-		argentJoueurActuel.setText("<html>Joueur " + joueurActif + "<br/>argent " + joueurs.get(joueurActif-1).getArgentJoueur() + "</html>");
+		argentJoueurActuel.setText("<html>Joueur " + joueurActif + "<br/>Argent " + joueurs.get(joueurActif-1).getArgentJoueur() + "</html>");
 	}
 	
 	public void boutonRachatHotel(String nom){
 		clean();
 		Hotel hotel = Hotel.trouveHotel(nom, hotelCase);
 		hotel.rachatHotel(joueurActif);
-		argentJoueurActuel.setText("<html>Joueur " + joueurActif + "<br/>argent " + joueurs.get(joueurActif-1).getArgentJoueur() + "</html>");
+		argentJoueurActuel.setText("<html>Joueur " + joueurActif + "<br/>Argent " + joueurs.get(joueurActif-1).getArgentJoueur() + "</html>");
 	}
 	
 	public void boutonConstruitHotel(String nom){
 		clean();
-		Hotel hotel = Hotel.trouveHotel(nom, hotelCase);
+		Hotel hotel = Hotel.trouveHotel(nom, hotels);
 		int resDeConstruit = hotel.construit(joueurActif,nom);
 		switch(resDeConstruit){
 		case 0:
@@ -827,7 +1232,7 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 			break;
 		}
 		setContentPane(panneau);
-		argentJoueurActuel.setText("<html>Joueur " + joueurActif + "<br/>argent " + joueurs.get(joueurActif-1).getArgentJoueur() + "</html>");
+		argentJoueurActuel.setText("<html>Joueur " + joueurActif + "<br/>Argent " + joueurs.get(joueurActif-1).getArgentJoueur() + "</html>");
 	}
 	
 	public void boutonConstruireGratuitHotel(String nom){
@@ -928,5 +1333,123 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 		return valRetour;
 		
 	}
-			  
+
+	public void verifierArgentJoueur(){
+		for( int i=0 ; i<joueurs.size(); i++){
+			if(joueurs.get(i).getArgentJoueur()<=0){
+				clean();
+				cleanTitre();
+				remove(boutonLancerDe);
+				remove(argentJoueurActuel);
+				setContentPane(panneau);
+				int joueur1 = 0,
+					joueur2 = 0, 
+					joueur3 = 0, 
+					joueur4 = 0,
+					argentJoueur1 = 0,
+					argentJoueur2 = 0,
+					argentJoueur3 = 0,
+					argentJoueur4 = 0;
+				int egaliteJoueur = 0; // =23 pour egalite entre joueur 2 et 3, =24 pour egalite entre 2 et 4, etc...
+				boolean egalite = false;
+				switch(this.nbJoueur){
+				case 2:
+					joueur2=i+1;
+					if(i==0){
+						joueur1=2;
+						argentJoueur1 = joueurs.get(1).getArgentJoueur();
+					}
+					else{
+						joueur1=1;
+						argentJoueur1 = joueurs.get(0).getArgentJoueur();
+					}
+					labelInfo.setText("<html>La partie est termin�e, le joueur " + joueur2 
+									  + " n'a plus d'argent.<br/>Classement :<br/>Premier : joueur " + joueur1 + " avec " + argentJoueur1 + " euros"
+									  + "<br/>Deuxieme : joueur " + joueur2 + " avec " + argentJoueur1 + " euros</html>");
+					break;
+				case 3:
+					joueur3=i+1;
+					if(i==0){
+						if(joueurs.get(1).getArgentJoueur()>joueurs.get(2).getArgentJoueur()){
+							joueur1=2;
+							joueur2=3;
+							argentJoueur1 = joueurs.get(1).getArgentJoueur();
+							argentJoueur2 = joueurs.get(2).getArgentJoueur();
+						}
+						if(joueurs.get(1).getArgentJoueur()<joueurs.get(2).getArgentJoueur()){
+							joueur1=3;
+							joueur2=2;
+							argentJoueur1 = joueurs.get(2).getArgentJoueur();
+							argentJoueur2 = joueurs.get(1).getArgentJoueur();
+						}
+						if(joueurs.get(1).getArgentJoueur()==joueurs.get(2).getArgentJoueur()){
+							egalite=true;
+							joueur1=2;
+							joueur2=3;
+							argentJoueur1 = joueurs.get(1).getArgentJoueur();
+							argentJoueur2 = joueurs.get(2).getArgentJoueur();
+						}
+					}
+					if(i==1){
+						if(joueurs.get(0).getArgentJoueur()>joueurs.get(2).getArgentJoueur()){
+							joueur1=1;
+							joueur2=3;
+							argentJoueur1 = joueurs.get(0).getArgentJoueur();
+							argentJoueur2 = joueurs.get(2).getArgentJoueur();
+						}
+						if(joueurs.get(0).getArgentJoueur()<joueurs.get(2).getArgentJoueur()){
+							joueur1=3;
+							joueur2=1;
+							argentJoueur1 = joueurs.get(2).getArgentJoueur();
+							argentJoueur2 = joueurs.get(0).getArgentJoueur();
+						}
+						if(joueurs.get(0).getArgentJoueur()==joueurs.get(2).getArgentJoueur()){
+							egalite=true;
+							joueur1=1;
+							joueur2=3;
+							argentJoueur1 = joueurs.get(0).getArgentJoueur();
+							argentJoueur2 = joueurs.get(2).getArgentJoueur();
+						}
+					}
+					if(i==2){
+						if(joueurs.get(1).getArgentJoueur()>joueurs.get(0).getArgentJoueur()){
+							joueur1=2;
+							joueur2=1;
+							argentJoueur1 = joueurs.get(1).getArgentJoueur();
+							argentJoueur2 = joueurs.get(0).getArgentJoueur();
+						}
+						if(joueurs.get(1).getArgentJoueur()<joueurs.get(0).getArgentJoueur()){
+							joueur1=1;
+							joueur2=2;
+							argentJoueur1 = joueurs.get(0).getArgentJoueur();
+							argentJoueur2 = joueurs.get(1).getArgentJoueur();
+						}
+						if(joueurs.get(1).getArgentJoueur()==joueurs.get(0).getArgentJoueur()){
+							egalite=true;
+							joueur1=1;
+							joueur2=2;
+							argentJoueur1 = joueurs.get(0).getArgentJoueur();
+							argentJoueur2 = joueurs.get(1).getArgentJoueur();
+						}
+					}
+					if(!egalite){
+						labelInfo.setText("<html>La partie est termin�e, le joueur " + joueur3 
+										  + " n'a plus d'argent.<br/>Classement :<br/>Premier : joueur " + joueur1 + " avec " + argentJoueur1 + " euros"
+										  + "<br/>Deuxieme : joueur " + joueur2 + " avec " + argentJoueur2 + " euros"
+										  + "<br/>Troisieme : joueur " + joueur3 + " avec " + argentJoueur3 + " euros</html>");
+					}
+					else{
+						labelInfo.setText("<html>La partie est termin�e, le joueur " + joueur3 
+								  + " n'a plus d'argent.<br/>Classement :<br/>Premier ex aequo : joueur " + joueur1 + " avec " + argentJoueur1 + " euros"
+								  + "<br/>Premier ex aequo : joueur " + joueur2 + " avec " + argentJoueur2 + " euros"
+								  + "<br/>Troisieme : joueur " + joueur3 + " avec " + argentJoueur3 + " euros</html>");
+					}
+					break;
+				case 4:
+					break;
+				}
+				setContentPane(panneau);
+			}
+		}
+	}		  
 }	
