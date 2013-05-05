@@ -15,8 +15,8 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 	private JLabel labelConstruire = new JLabel("Construire");
 	private JLabel labelConstruireGratuit = new JLabel("<html>Construction <br/>Gratuite</html>");
 	private Bouton boutonJouer =  new Bouton("Jouer");
-	private Bouton boutonRegle = new Bouton("R�gle du jeu");
-	private Bouton boutonLancerDe = new Bouton("Lancer d�");
+	private Bouton boutonRegle = new Bouton("Règle du jeu");
+	private Bouton boutonLancerDe = new Bouton("Lancer dé");
 	private Bouton bouton2J = new Bouton("2 joueurs");
 	private Bouton bouton3J = new Bouton("3 joueurs");
 	private Bouton bouton4J = new Bouton("4 joueurs");
@@ -567,7 +567,6 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 		  if(arg0.getSource() == boutonConstruireGratuitWaikiki){
 			  boutonConstruireGratuitHotel("Waikiki");
 		  }
-		  
 		}
 	
 	public void actualiserPosition(){
@@ -904,6 +903,30 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 		  remove(deGratuit);
 		  remove(deDouble);
 		  setContentPane(panneau);
+	}
+	
+	public int valeurDe(){
+		int valRetour = 0;
+		if(de1.isVisible() == true){
+			valRetour = 1;
+		}
+		else if(de2.isVisible() == true){
+			valRetour = 2;
+		}
+		else if(de3.isVisible() == true){
+			valRetour = 3;
+		}
+		else if(de4.isVisible() == true){
+			valRetour = 4;
+		}
+		else if(de5.isVisible() == true){
+			valRetour = 5;
+		}
+		else if(de6.isVisible() == true){
+			valRetour = 6;
+		}
+		return valRetour;
+		
 	}
 			  
 }	
