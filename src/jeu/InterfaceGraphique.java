@@ -64,12 +64,12 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 	private Bouton titreSafari = new Bouton("safari.png",0);
 	private Bouton titreTajMahal = new Bouton("tajmahal.png",0);
 	private Bouton titreWaikiki = new Bouton("waikiki.png",0);
-	private Bouton de1 = new Bouton("1.png",0);
-	private Bouton de2 = new Bouton("2.png",0);
-	private Bouton de3 = new Bouton("3.png",0);
-	private Bouton de4 = new Bouton("4.png",0);
-	private Bouton de5 = new Bouton("5.png",0);
-	private Bouton de6 = new Bouton("6.png",0);
+	private static Bouton de1 = new Bouton("1.png",0);
+	private static Bouton de2 = new Bouton("2.png",0);
+	private static Bouton de3 = new Bouton("3.png",0);
+	private static Bouton de4 = new Bouton("4.png",0);
+	private static Bouton de5 = new Bouton("5.png",0);
+	private static Bouton de6 = new Bouton("6.png",0);
 	private Bouton deConstruit = new Bouton("oui.png",0);
 	private Bouton deConstruitPas = new Bouton("non.png",0);
 	private Bouton deGratuit = new Bouton("gratuit.png",0);
@@ -905,7 +905,7 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 		  setContentPane(panneau);
 	}
 	
-	public int valeurDe(){
+	public static int valeurDe(){
 		int valRetour = 0;
 		if(de1.isVisible() == true){
 			valRetour = 1;
