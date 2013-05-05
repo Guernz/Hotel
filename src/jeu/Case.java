@@ -156,7 +156,7 @@ public class Case {
 	 * Retourne le numero du joueur a paye et la somme due
 	 * Retourne 0;0 s'il ne doit pas payer
 	 */
-	public static int[] doitPayer(){		
+	public static int[] doitPayer(int valeurDe){		
 		//Recupere la position du joueurCourant
 		int positionJoueur = InterfaceGraphique.joueurs.get(InterfaceGraphique.joueurActif-1).position;
 		boolean exterieur = false;
