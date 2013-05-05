@@ -130,6 +130,16 @@ public abstract class Hotel {
 		return resDeConstruit;
 	}
 	
+	public static boolean possedeUnHotelConstruit(int numJoueur){
+		boolean res = false;
+		for(int i=0;i<InterfaceGraphique.hotels.size();i++){
+			if(InterfaceGraphique.hotels.get(i).getJoueurProprio() == numJoueur && InterfaceGraphique.hotels.get(i).getBatimentPrincConstruit()){
+				res = true;
+			}
+		}
+		return res;
+	}
+	
 	public void construitGratuit(int numJoueur, String nom){
 		if(!this.batimentPrincConstruit){
 				this.batimentPrincConstruit=true;

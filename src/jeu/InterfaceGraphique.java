@@ -14,11 +14,11 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 	private JLabel labelRachat = new JLabel("Rachat");
 	private JLabel labelConstruire = new JLabel("Construire");
 	private JLabel labelConstruireGratuit = new JLabel("<html>Construction <br/>Gratuite</html>");
-	private JLabel labelEntree = new JLabel("Poser une entrï¿½e :");
+	private JLabel labelEntree = new JLabel("Poser une entrée :");
 	private JLabel labelInfo = new JLabel("");
 	private Bouton boutonJouer =  new Bouton("Jouer");
 	private Bouton boutonRegle = new Bouton("RÃ¨gle du jeu");
-	private Bouton boutonLancerDe = new Bouton("Lancer dÃ©");
+	private Bouton boutonLancerDe = new Bouton("Lancer dé");
 	private Bouton bouton2J = new Bouton("2 joueurs");
 	private Bouton bouton3J = new Bouton("3 joueurs");
 	private Bouton bouton4J = new Bouton("4 joueurs");
@@ -66,6 +66,14 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 	private Bouton titreSafari = new Bouton("safari.png",0);
 	private Bouton titreTajMahal = new Bouton("tajmahal.png",0);
 	private Bouton titreWaikiki = new Bouton("waikiki.png",0);
+	private Bouton entreeFujiyama = new Bouton("Fujiyama");
+	private Bouton entreeBoomerang = new Bouton("Boomerang");
+	private Bouton entreeEtoile = new Bouton("Etoile");
+	private Bouton entreePresident = new Bouton("President");
+	private Bouton entreeRoyal = new Bouton("Royal");
+	private Bouton entreeSafari = new Bouton("Safari");
+	private Bouton entreeTajMahal = new Bouton("TajMahal");
+	private Bouton entreeWaikiki = new Bouton("Waikiki");
 	private static Bouton de1 = new Bouton("1.png",0);
 	private static Bouton de2 = new Bouton("2.png",0);
 	private static Bouton de3 = new Bouton("3.png",0);
@@ -112,6 +120,7 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 	private Joueur joueurRouge = new Joueur("Rouge");
 	int width = 1048;
 	int height = 700;
+	private int caseEntree;
 	static boolean 	fait6, 
 				   	boutonBoom = false,
 				   	boutonEtoi = false,
@@ -120,7 +129,9 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 				   	boutonRoya = false,
 				   	boutonSafa = false,
 				   	boutonTajM = false,
-				   	boutonWaik = false;
+				   	boutonWaik = false,
+				   	obtientUneEntree = false,
+				   	peuxPoserEntree = false;
 	static int 	nbJoueur, 
 				joueurActif = 1;
 	static ArrayList<Joueur> joueurs = new ArrayList<Joueur>();
@@ -130,7 +141,7 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 		
 	public InterfaceGraphique(){
 		//Dï¿½finit un titre pour notre fenï¿½tre
-	    this.setTitle("Jeu de sociï¿½tï¿½ Hotel");
+	    this.setTitle("Jeu de société Hotel");
 	    //Dï¿½finit sa taille 
 	    this.setSize(width+302, height);
 	    //Nous demandons maintenant ï¿½ notre objet de se positionner au centre
@@ -183,6 +194,14 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 	    boutonConstruireGratuitSafari.addActionListener(this);
 	    boutonConstruireGratuitTajMahal.addActionListener(this);
 	    boutonConstruireGratuitWaikiki.addActionListener(this);
+	    entreeFujiyama.addActionListener(this);
+	    entreeBoomerang.addActionListener(this);
+	    entreeEtoile.addActionListener(this);
+	    entreePresident.addActionListener(this);
+	    entreeRoyal.addActionListener(this);
+	    entreeSafari.addActionListener(this);
+	    entreeTajMahal.addActionListener(this);
+	    entreeWaikiki.addActionListener(this);
 	    bouton2.addActionListener(this);
 	    bouton3.addActionListener(this);
 	    bouton4.addActionListener(this);
@@ -269,17 +288,26 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 	    boutonConstruireGratuitSafari.setBounds(margeLargeurBouton,6*margeHauteurBouton+margeHauteurBouton/2,largeurBouton,hauteurBouton/2);
 	    boutonConstruireGratuitTajMahal.setBounds(margeLargeurBouton,7*margeHauteurBouton,largeurBouton,hauteurBouton/2);
 	    boutonConstruireGratuitWaikiki.setBounds(margeLargeurBouton,7*margeHauteurBouton+margeHauteurBouton/2,largeurBouton,hauteurBouton/2);
+	    entreeBoomerang.setBounds(margeLargeurBouton,4*margeHauteurBouton+margeHauteurBouton/2,largeurBouton,hauteurBouton/2);
+	    entreeEtoile.setBounds(margeLargeurBouton,5*margeHauteurBouton,largeurBouton,hauteurBouton/2);
+	    entreeFujiyama.setBounds(margeLargeurBouton,4*margeHauteurBouton,largeurBouton,hauteurBouton/2);
+	    entreePresident.setBounds(margeLargeurBouton,5*margeHauteurBouton+margeHauteurBouton/2,largeurBouton,hauteurBouton/2);
+	    entreeRoyal.setBounds(margeLargeurBouton,6*margeHauteurBouton,largeurBouton,hauteurBouton/2);
+	    entreeSafari.setBounds(margeLargeurBouton,6*margeHauteurBouton+margeHauteurBouton/2,largeurBouton,hauteurBouton/2);
+	    entreeTajMahal.setBounds(margeLargeurBouton,7*margeHauteurBouton,largeurBouton,hauteurBouton/2);
+	    entreeWaikiki.setBounds(margeLargeurBouton,7*margeHauteurBouton+margeHauteurBouton/2,largeurBouton,hauteurBouton/2);
+	    
 	    bouton2J.setBounds(margeLargeurBouton,margeHauteurBouton,largeurBouton,hauteurBouton);
 	    bouton3J.setBounds(margeLargeurBouton,3*margeHauteurBouton,largeurBouton,hauteurBouton);
 	    bouton4J.setBounds(margeLargeurBouton,5*margeHauteurBouton,largeurBouton,hauteurBouton);
-	    titreBoomerang.setBounds(1025,450,300,200);
-	    titreFujiyama.setBounds(1025,250,300,200);
-	    titreEtoile.setBounds(1025,250,300,200);
-	    titrePresident.setBounds(1025,450,300,200);
-	    titreSafari.setBounds(1025,450,300,200);
-	    titreTajMahal.setBounds(1025,450,300,200);
-	    titreWaikiki.setBounds(1025,450,300,200);
-	    titreRoyal.setBounds(1025,250,300,200);
+	    titreBoomerang.setBounds(1030,450,300,200);
+	    titreFujiyama.setBounds(1030,250,300,200);
+	    titreEtoile.setBounds(1030,250,300,200);
+	    titrePresident.setBounds(1030,450,300,200);
+	    titreSafari.setBounds(1030,450,300,200);
+	    titreTajMahal.setBounds(1030,450,300,200);
+	    titreWaikiki.setBounds(1030,450,300,200);
+	    titreRoyal.setBounds(1030,250,300,200);
 	    de1.setBounds(1075,180,50,50);
 	    de2.setBounds(1075,180,50,50);
 	    de3.setBounds(1075,180,50,50);
@@ -685,7 +713,7 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 			  remove(bouton3J);
 			  remove(bouton4J);
 			  add(boutonLancerDe);
-			  labelInfo.setText("<html>Deux joueurs<br/><html>Joueur " + joueurActif + " veuillez lancer les dï¿½s.</html></html>");
+			  labelInfo.setText("<html>Deux joueurs<br/><html>Joueur " + joueurActif + " veuillez lancer les dés.</html></html>");
 			  add(labelInfo);
 			  setContentPane(panneau);
 		  }
@@ -702,7 +730,7 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 			  remove(bouton3J);
 			  remove(bouton4J);
 			  add(boutonLancerDe);
-			  labelInfo.setText("<html>Trois joueurs<br/><html>Joueur " + joueurActif + " veuillez lancer les dï¿½s.</html></html>");
+			  labelInfo.setText("<html>Trois joueurs<br/><html>Joueur " + joueurActif + " veuillez lancer les dés.</html></html>");
 			  add(labelInfo);
 			  setContentPane(panneau);
 		  }
@@ -721,13 +749,12 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 			  remove(bouton3J);
 			  remove(bouton4J);
 			  add(boutonLancerDe);
-			  labelInfo.setText("<html>Quatre joueurs<br/><html>Joueur " + joueurActif + " veuillez lancer les dï¿½s.</html></html>");
+			  labelInfo.setText("<html>Quatre joueurs<br/><html>Joueur " + joueurActif + " veuillez lancer les dés.</html></html>");
 			  add(labelInfo);
 			  setContentPane(panneau);
 		  }
 		  
 		  if(arg0.getSource() == boutonLancerDe){
-			  labelInfo.setText("");
 			  add(argentJoueurActuel);
 			  add(labelInfo);
 			  int res;
@@ -764,6 +791,19 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 				  add(de6);
 				  break;
 			  }
+			  if(peuxPoserEntree && Hotel.possedeUnHotelConstruit(joueurActif)){
+				  obtientEntree();
+			  }
+			  peuxPoserEntree = false;
+			  int tabDoitPayer[]=Case.doitPayer();
+			  if(tabDoitPayer[0]==1){
+				  labelInfo.setText("<html>Vous avez fait " + res + " !" +
+				  					"<br/>Vous êtes chez le joueur " + tabDoitPayer[1] + 
+				  					"<br/>Vous devez lui payer " + tabDoitPayer[2] + "</html>");
+			  }
+			  else{
+				  labelInfo.setText("<html>Vous avez fait " + res + " !</html>");
+			  }
 			  hotelCase = Hotel.trouveHotel(joueurs.get(joueurActif-1).getPosition(),hotels);
 			  for( int i = 0 ; i<hotelCase.size(); i++){
 					if(hotelCase.get(i).getNom().equals("Fujiyama")){
@@ -799,7 +839,7 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 		  if(arg0.getSource() == boutonContinuer){
 			  clean();
 			  cleanTitre();
-			  labelInfo.setText("<html>Joueur " + joueurActif + " veuillez lancer les dï¿½s.</html>");
+			  labelInfo.setText("<html>Joueur " + joueurActif + " veuillez lancer les dés.</html>");
 			  remove(boutonContinuer);
 			  remove(boutonAction);
 			  add(boutonLancerDe);
@@ -810,7 +850,11 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 		  if(arg0.getSource() == boutonJoueurSuivant){
 			  clean();
 			  cleanTitre();
-			  labelInfo.setText("<html>Joueur " + joueurActif + " veuillez lancer les dï¿½s.</html>");
+			  int joueurtmp=joueurActif+1;
+			  if(joueurtmp>nbJoueur){
+				  joueurtmp=1;
+			  }
+			  labelInfo.setText("<html>Joueur " + joueurtmp + " veuillez lancer les dés.</html>");
 			  remove(boutonJoueurSuivant);
 			  remove(boutonAction);
 			  remove(argentJoueurActuel);
@@ -831,7 +875,7 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 					  //case dï¿½part, il n'y a pas d'action
 					  break;
 				  case 2:
-					  //entreeGratuite();
+					  entreeGratuite();
 					  break;
 				  case 3:
 					  constructionGratuite();
@@ -972,6 +1016,267 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 		  if(arg0.getSource() == boutonConstruireGratuitWaikiki){
 			  boutonConstruireGratuitHotel("Waikiki");
 		  }
+		  
+		  if(arg0.getSource() == bouton2){
+			  afficheBoutonEntree(2);
+			  caseEntree=2;
+			  panneau.setMagenta(-30,-30);
+		    	setContentPane(panneau);
+		  }
+		  
+		  if(arg0.getSource() == bouton3){
+			  afficheBoutonEntree(3);
+			  caseEntree=3;
+			  panneau.setMagenta(-30,-30);
+		    	setContentPane(panneau);
+		  }
+		  
+		  if(arg0.getSource() == bouton4){
+			  afficheBoutonEntree(4);
+			  caseEntree=4;
+			  panneau.setMagenta(-30,-30);
+		    	setContentPane(panneau);
+		  }
+		  
+		  if(arg0.getSource() == bouton5){
+			  afficheBoutonEntree(5);
+			  caseEntree=5;
+			  panneau.setMagenta(-30,-30);
+		    	setContentPane(panneau);
+		  }
+		  
+		  if(arg0.getSource() == bouton6){
+			  afficheBoutonEntree(6);
+			  caseEntree=6;
+			  panneau.setMagenta(-30,-30);
+		    	setContentPane(panneau);
+		  }
+		  
+		  if(arg0.getSource() == bouton7){
+			  afficheBoutonEntree(7);
+			  caseEntree=7;
+			  panneau.setMagenta(-30,-30);
+		    	setContentPane(panneau);
+		  }
+		  
+		  if(arg0.getSource() == bouton9){
+			  afficheBoutonEntree(9);
+			  caseEntree=9;
+			  panneau.setMagenta(-30,-30);
+		    	setContentPane(panneau);
+		  }
+		  
+		  if(arg0.getSource() == bouton10){
+			  afficheBoutonEntree(10);
+			  caseEntree=10;
+			  panneau.setMagenta(-30,-30);
+		    	setContentPane(panneau);
+		  }
+		  
+		  if(arg0.getSource() == bouton11){
+			  afficheBoutonEntree(11);
+			  caseEntree=11;
+			  panneau.setMagenta(-30,-30);
+		    	setContentPane(panneau);
+		  }
+		  
+		  if(arg0.getSource() == bouton12){
+			  afficheBoutonEntree(12);
+			  caseEntree=12;
+			  panneau.setMagenta(-30,-30);
+		    	setContentPane(panneau);
+		  }
+		  
+		  if(arg0.getSource() == bouton13){
+			  afficheBoutonEntree(13);
+			  caseEntree=13;
+			  panneau.setMagenta(-30,-30);
+		    	setContentPane(panneau);
+		  }
+		  
+		  if(arg0.getSource() == bouton14){
+			  afficheBoutonEntree(14);
+			  caseEntree=14;
+			  panneau.setMagenta(-30,-30);
+		    	setContentPane(panneau);
+		  }
+		  
+		  if(arg0.getSource() == bouton15){
+			  afficheBoutonEntree(15);
+			  caseEntree=15;
+			  panneau.setMagenta(-30,-30);
+		    	setContentPane(panneau);
+		  }
+		  
+		  if(arg0.getSource() == bouton16){
+			  afficheBoutonEntree(16);
+			  caseEntree=16;
+			  panneau.setMagenta(-30,-30);
+		    	setContentPane(panneau);
+		  }
+		  
+		  if(arg0.getSource() == bouton17){
+			  afficheBoutonEntree(17);
+			  caseEntree=17;
+			  panneau.setMagenta(-30,-30);
+		    	setContentPane(panneau);
+		  }
+		  
+		  if(arg0.getSource() == bouton18){
+			  afficheBoutonEntree(18);
+			  caseEntree=18;
+			  panneau.setMagenta(-30,-30);
+		    	setContentPane(panneau);
+		  }
+		  
+		  if(arg0.getSource() == bouton19){
+			  afficheBoutonEntree(19);
+			  caseEntree=19;
+			  panneau.setMagenta(-30,-30);
+		    	setContentPane(panneau);
+		  }
+		  
+		  if(arg0.getSource() == bouton20){
+			  afficheBoutonEntree(20);
+			  caseEntree=20;
+			  panneau.setMagenta(-30,-30);
+		    	setContentPane(panneau);
+		  }
+		  
+		  if(arg0.getSource() == bouton21){
+			  afficheBoutonEntree(21);
+			  caseEntree=21;
+			  panneau.setMagenta(-30,-30);
+		    	setContentPane(panneau);
+		  }
+		  
+		  if(arg0.getSource() == bouton22){
+			  afficheBoutonEntree(22);
+			  caseEntree=22;
+			  panneau.setMagenta(-30,-30);
+		    	setContentPane(panneau);
+		  }
+		  
+		  if(arg0.getSource() == bouton23){
+			  afficheBoutonEntree(23);
+			  caseEntree=23;
+			  panneau.setMagenta(-30,-30);
+		    	setContentPane(panneau);
+		  }
+		  
+		  if(arg0.getSource() == bouton24){
+			  afficheBoutonEntree(24);
+			  caseEntree=24;
+			  panneau.setMagenta(-30,-30);
+		    	setContentPane(panneau);
+		  }
+		  
+		  if(arg0.getSource() == bouton25){
+			  afficheBoutonEntree(25);
+			  caseEntree=25;
+			  panneau.setMagenta(-30,-30);
+		    	setContentPane(panneau);
+		  }
+		  
+		  if(arg0.getSource() == bouton26){
+			  afficheBoutonEntree(26);
+			  caseEntree=26;
+			  panneau.setMagenta(-30,-30);
+		    	setContentPane(panneau);
+		  }
+		  
+		  if(arg0.getSource() == bouton27){
+			  afficheBoutonEntree(27);
+			  caseEntree=27;
+			  panneau.setMagenta(-30,-30);
+		    	setContentPane(panneau);
+		  }
+		  
+		  if(arg0.getSource() == bouton28){
+			  afficheBoutonEntree(28);
+			  caseEntree=28;
+			  panneau.setMagenta(-30,-30);
+		    	setContentPane(panneau);
+		  }
+		  
+		  if(arg0.getSource() == bouton29){
+			  afficheBoutonEntree(29);
+			  caseEntree=29;
+			  panneau.setMagenta(-30,-30);
+		    	setContentPane(panneau);
+		  }
+		  
+		  if(arg0.getSource() == bouton30){
+			  afficheBoutonEntree(30);
+			  caseEntree=30;
+			  panneau.setMagenta(-30,-30);
+		    	setContentPane(panneau);
+		  }
+		  
+		  if(arg0.getSource() == bouton31){
+			  afficheBoutonEntree(31);
+			  caseEntree=31;
+			  panneau.setMagenta(-30,-30);
+		    	setContentPane(panneau);
+		  }
+		  
+		  if(arg0.getSource() == entreeFujiyama){
+			  Case.placerEntree(caseEntree, "Fujiyama");
+			  cleanBoutonEntree("Fujiyama");
+			  labelInfo.setText("<html>Vous avez posé une entrée pour <br/>l'hotel Fujiyama sur la case " + caseEntree + ".</html>");
+
+		  }
+		  
+		  if(arg0.getSource() == entreeBoomerang){
+			  Case.placerEntree(caseEntree, "Boomerang");
+			  cleanBoutonEntree("Boomerang");
+			  labelInfo.setText("<html>Vous avez posé une entrée pour <br/>l'hotel Boomerang sur la case " + caseEntree + ".</html>");
+
+		  }
+		  
+		  if(arg0.getSource() == entreeEtoile){
+			  Case.placerEntree(caseEntree, "Etoile");
+			  cleanBoutonEntree("Etoile");
+			  labelInfo.setText("<html>Vous avez posé une entrée pour <br/>l'hotel Etoile sur la case " + caseEntree + ".</html>");
+
+		  }
+		  
+		  if(arg0.getSource() == entreePresident){
+			  Case.placerEntree(caseEntree, "President");
+			  cleanBoutonEntree("President");
+			  labelInfo.setText("<html>Vous avez posé une entrée pour <br/>l'hotel President sur la case " + caseEntree + ".</html>");
+
+		  }
+		  
+		  if(arg0.getSource() == entreeRoyal){
+			  Case.placerEntree(caseEntree, "Royal");
+			  cleanBoutonEntree("Royal");
+			  labelInfo.setText("<html>Vous avez posé une entrée pour <br/>l'hotel Royal sur la case " + caseEntree + ".</html>");
+
+		  }
+		  
+		  if(arg0.getSource() == entreeSafari){
+			  Case.placerEntree(caseEntree, "Safari");
+			  cleanBoutonEntree("Safari");
+			  labelInfo.setText("<html>Vous avez posé une entrée pour <br/>l'hotel Safari sur la case " + caseEntree + ".</html>");
+
+		  }
+		  
+		  if(arg0.getSource() == entreeWaikiki){
+			  Case.placerEntree(caseEntree, "Waikiki");
+			  cleanBoutonEntree("Waikiki");
+			  labelInfo.setText("<html>Vous avez posé une entrée pour <br/>l'hotel Waikiki sur la case " + caseEntree + ".</html>");
+
+		  }
+		  
+		  if(arg0.getSource() == entreeTajMahal){
+			  Case.placerEntree(caseEntree, "TajMahal");
+			  cleanBoutonEntree("TajMahal");
+			  labelInfo.setText("<html>Vous avez posé une entrée pour <br/>l'hotel TajMahal sur la case " + caseEntree + ".</html>");
+
+		  }
+		  
+		  
 		}
 	
 	public void actualiserPosition(){
@@ -1039,6 +1344,143 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 		}
 	}
 	
+	public void obtientEntree(){
+		peuxPoserEntree = false;
+		labelInfo.setText("<html>Vous pouvez placer une entrée !</html>");
+		entreeGratuite();
+		obtientUneEntree=true;
+	}
+	
+	public void entreeGratuite(){
+		remove(boutonAction);
+		int[] res=Case.entreePossible();
+		for(int i=0;i<res.length;i++){
+			switch(res[i]){
+			case 2:
+				add(bouton2);
+				break;
+			case 3:
+				add(bouton3);
+				break;
+			case 4:
+				add(bouton4);
+				break;
+			case 5:
+				add(bouton5);
+				break;
+			case 6:
+				add(bouton6);
+				break;
+			case 7:
+				add(bouton7);
+				break;
+			case 9:
+				add(bouton9);
+				break;
+			case 10:
+				add(bouton10);
+				break;
+			case 11:
+				add(bouton11);
+				break;
+			case 12:
+				add(bouton12);
+				break;
+			case 13:
+				add(bouton13);
+				break;
+			case 14:
+				add(bouton14);
+				break;
+			case 15:
+				add(bouton15);
+				break;
+			case 16:
+				add(bouton16);
+				break;
+			case 17:
+				add(bouton17);
+				break;
+			case 18:
+				add(bouton18);
+				break;
+			case 19:
+				add(bouton19);
+				break;
+			case 20:
+				add(bouton20);
+				break;
+			case 21:
+				add(bouton21);
+				break;
+			case 22:
+				add(bouton22);
+				break;
+			case 23:
+				add(bouton23);
+				break;
+			case 24:
+				add(bouton24);
+				break;
+			case 25:
+				add(bouton25);
+				break;
+			case 26:
+				add(bouton26);
+				break;
+			case 27:
+				add(bouton27);
+				break;
+			case 28:
+				add(bouton28);
+				break;
+			case 29:
+				add(bouton29);
+				break;
+			case 30:
+				add(bouton30);
+				break;
+			case 31:
+				add(bouton31);
+				break;
+			}
+		}
+		setContentPane(panneau);
+	}
+	
+	public void afficheBoutonEntree(int numCaseEntree){
+		ArrayList<Hotel> hotelsEntree = new ArrayList<Hotel>();
+		  hotelsEntree = Hotel.trouveHotel(numCaseEntree,hotels);
+		  for(int i=0 ; i<hotelsEntree.size() ; i++){
+			  if(hotelsEntree.get(i).getNom().equals("Fujiyama") && hotelsEntree.get(i).getJoueurProprio() == joueurActif){
+				  add(entreeFujiyama);
+			  }
+			  if(hotelsEntree.get(i).getNom().equals("Boomerang") && hotelsEntree.get(i).getJoueurProprio() == joueurActif){
+				  add(entreeBoomerang);
+			  }
+			  if(hotelsEntree.get(i).getNom().equals("Etoile") && hotelsEntree.get(i).getJoueurProprio() == joueurActif){
+				  add(entreeEtoile);
+			  }
+			  if(hotelsEntree.get(i).getNom().equals("President") && hotelsEntree.get(i).getJoueurProprio() == joueurActif){
+				  add(entreePresident);
+			  }
+			  if(hotelsEntree.get(i).getNom().equals("Royal") && hotelsEntree.get(i).getJoueurProprio() == joueurActif){
+				  add(entreeRoyal);
+			  }
+			  if(hotelsEntree.get(i).getNom().equals("Safari") && hotelsEntree.get(i).getJoueurProprio() == joueurActif){
+				  add(entreeSafari);
+			  }
+			  if(hotelsEntree.get(i).getNom().equals("TajMahal") && hotelsEntree.get(i).getJoueurProprio() == joueurActif){
+				  add(entreeTajMahal);
+			  }
+			  if(hotelsEntree.get(i).getNom().equals("Waikiki") && hotelsEntree.get(i).getJoueurProprio() == joueurActif){
+				  add(entreeWaikiki);
+			  }
+		  }
+		  cleanEntree();
+		  setContentPane(panneau);
+	}
+	
 	public void permisConstruire(){
 		remove(boutonAction);
 		for( int i = 0 ; i<hotels.size(); i++){
@@ -1074,9 +1516,6 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 	}
 	
 	public void achat(){
-		
-
-
 		remove(boutonAction);
 		hotelCase = new ArrayList<Hotel>();
 		hotelCase = Hotel.trouveHotel(joueurs.get(joueurActif-1).getPosition(),hotels);
@@ -1203,6 +1642,7 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 		clean();
 		Hotel hotel = Hotel.trouveHotel(nom, hotelCase);
 		hotel.achatHotel(joueurActif);
+		labelInfo.setText("<html>Vous avec acheté l'hotel " + nom + " !</html>");
 		argentJoueurActuel.setText("<html>Joueur " + joueurActif + "<br/>Argent " + joueurs.get(joueurActif-1).getArgentJoueur() + "</html>");
 	}
 	
@@ -1210,6 +1650,7 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 		clean();
 		Hotel hotel = Hotel.trouveHotel(nom, hotelCase);
 		hotel.rachatHotel(joueurActif);
+		labelInfo.setText("<html>Vous avec racheté l'hotel " + nom + " !</html>");
 		argentJoueurActuel.setText("<html>Joueur " + joueurActif + "<br/>Argent " + joueurs.get(joueurActif-1).getArgentJoueur() + "</html>");
 	}
 	
@@ -1220,18 +1661,25 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 		switch(resDeConstruit){
 		case 0:
 			add(deConstruitPas);
+			setContentPane(panneau);
+			labelInfo.setText("<html>Construction refusée !</html>");
 			break;
 		case 1:
 			add(deConstruit);
+			setContentPane(panneau);
+			labelInfo.setText("<html>Vous avec construit un batiment sur votre hotel<br/>" + nom + " au tarif normal !</html>");
 			break;
 		case 2:
 			add(deDouble);
+			setContentPane(panneau);
+			labelInfo.setText("<html>Vous avec construit un batiment sur votre hotel<br/>" + nom + " au tarif double !</html>");
 			break;
 		case 3:
 			add(deGratuit);
+			setContentPane(panneau);
+			labelInfo.setText("<html>Vous avec construit un batiment sur votre hotel<br/>" + nom + " gratuitement !</html>");
 			break;
 		}
-		setContentPane(panneau);
 		argentJoueurActuel.setText("<html>Joueur " + joueurActif + "<br/>Argent " + joueurs.get(joueurActif-1).getArgentJoueur() + "</html>");
 	}
 	
@@ -1245,6 +1693,7 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 		}
 		Hotel hotel = Hotel.trouveHotel(nom, hotelJoueur);
 		hotel.construitGratuit(joueurActif,nom);
+		labelInfo.setText("<html>Vous avec construit un batiment sur votre hotel<br/>" + nom + " gratuitement !</html>");
 	}
 	
 	public void clean(){
@@ -1308,6 +1757,56 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 		  remove(deGratuit);
 		  remove(deDouble);
 		  setContentPane(panneau);
+	}
+	
+	public void cleanEntree(){
+		remove(bouton2);
+		remove(bouton3);
+		remove(bouton4);
+		remove(bouton5);
+		remove(bouton6);
+		remove(bouton7);
+		remove(bouton9);
+		remove(bouton10);
+		remove(bouton11);
+		remove(bouton12);
+		remove(bouton13);
+		remove(bouton14);
+		remove(bouton15);
+		remove(bouton16);
+		remove(bouton17);
+		remove(bouton18);
+		remove(bouton19);
+		remove(bouton20);
+		remove(bouton21);
+		remove(bouton22);
+		remove(bouton23);
+		remove(bouton24);
+		remove(bouton25);
+		remove(bouton26);
+		remove(bouton27);
+		remove(bouton28);
+		remove(bouton29);
+		remove(bouton30);
+		remove(bouton31);
+		remove(labelEntree);
+		setContentPane(panneau);
+	}
+	
+	public void cleanBoutonEntree(String nom){
+		remove(entreeFujiyama);
+		remove(entreeBoomerang);
+		remove(entreeEtoile);
+		remove(entreePresident);
+		remove(entreeRoyal);
+		remove(entreeSafari);
+		remove(entreeWaikiki);
+		remove(entreeTajMahal);
+		if(obtientUneEntree){
+			obtientUneEntree=false;
+			add(boutonAction);
+		}
+		setContentPane(panneau);
 	}
 	
 	public static int valeurDe(){

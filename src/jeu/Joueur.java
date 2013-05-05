@@ -50,11 +50,14 @@ public class Joueur extends De {
 		if (caseDepart<=7 && caseFinale+caseDepart>=8){
 			InterfaceGraphique.joueurs.get(InterfaceGraphique.joueurActif-1).setArgentJoueur(InterfaceGraphique.joueurs.get(InterfaceGraphique.joueurActif-1).getArgentJoueur()+2000);
 		}
+		if (caseDepart<=26 && caseFinale+caseDepart>=27){
+			InterfaceGraphique.peuxPoserEntree = true;;
+		}
 		this.position+=caseFinale;
 		if(this.position>=Plateau.nbCase+1){
 			this.position-=Plateau.nbCase;
 		}
-		System.out.println("Vous Ãªtes sur la case numero :"+getPosition());
+		System.out.println("Vous êtes sur la case numero :"+getPosition());
 		actionCase(this.position);
 		return res;
 	}

@@ -89,7 +89,7 @@ public class Case {
 	 * Renvoie 0 dans un tableau d'une case si aucune entree n'est disponible pour le joueur
 	 * @return entreeRetour
 	 */
-	public int[] entreePossible(){
+	public static int[] entreePossible(){
 		ArrayList <Hotel> listeHotel = InterfaceGraphique.hotels;
 		int[] tableauTemp = new int[32];
 		int nbEntreeRetour = 0;
@@ -140,7 +140,7 @@ public class Case {
 	 * Ajoute une entree sur la case renseignee en entree pour un hotel precis
 	 * On precise le nom de l'hotel pour savoir sur quel cote on la place
 	 */
-	public void placerEntree(int caseEntree, String nomHotel){
+	public static void placerEntree(int caseEntree, String nomHotel){
 		Hotel hotelConcerne = Hotel.trouveHotel(nomHotel, InterfaceGraphique.hotels);
 		if(hotelConcerne.emplacementExt == true){
 			Plateau.plateau.get(caseEntree).entreeExt = true;
@@ -160,7 +160,7 @@ public class Case {
 		//Recupere la position du joueurCourant
 		int positionJoueur = InterfaceGraphique.joueurs.get(InterfaceGraphique.joueurActif-1).position;
 		boolean exterieur = false;
-		int[] valRetour = {0,0}; 
+		int[] valRetour = {0,0,0}; 
 		int numeroJoueur = 0;
 		int[][] tableauLoyer = new int[6][6]; 
 		int argentAPaye = 0;
@@ -196,9 +196,13 @@ public class Case {
 			//On récupère le loyer
 			numeroJoueur = listeHotelCase.get(hotelConcerne).joueurProprio;
 			tableauLoyer = listeHotelCase.get(hotelConcerne).loyer;
-			argentAPaye = tableauLoyer[listeHotelCase.get(hotelConcerne).getNbAnnexeConstruite()][InterfaceGraphique.valeurDe()];
-			valRetour[0] = numeroJoueur;
-			valRetour[1] = argentAPaye;
+			argentAPaye = tableauLoyer[InterfaceGraphique.valeurDe()][listeHotelCase.get(hotelConcerne).getNbAnnexeConstruite()];
+			
+			InterfaceGraphique.joueurs.get(InterfaceGraphique.joueurActif-1).setArgentJoueur(InterfaceGraphique.joueurs.get(InterfaceGraphique.joueurActif-1).getArgentJoueur()-argentAPaye);
+			InterfaceGraphique.joueurs.get(numeroJoueur-1).setArgentJoueur(InterfaceGraphique.joueurs.get(numeroJoueur-1).getArgentJoueur()+argentAPaye);
+			valRetour[0] = 1;
+			valRetour[1] = numeroJoueur;
+			valRetour[2] = argentAPaye;
 		}
 		
 		return valRetour;
