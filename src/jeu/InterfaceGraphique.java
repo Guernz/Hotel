@@ -66,12 +66,12 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 	private Bouton titreSafari = new Bouton("safari.png",0);
 	private Bouton titreTajMahal = new Bouton("tajmahal.png",0);
 	private Bouton titreWaikiki = new Bouton("waikiki.png",0);
-	private static Bouton de1 = new Bouton("1.png",0);
-	private static Bouton de2 = new Bouton("2.png",0);
-	private static Bouton de3 = new Bouton("3.png",0);
-	private static Bouton de4 = new Bouton("4.png",0);
-	private static Bouton de5 = new Bouton("5.png",0);
-	private static Bouton de6 = new Bouton("6.png",0);
+	private Bouton de1 = new Bouton("1.png",0);
+	private Bouton de2 = new Bouton("2.png",0);
+	private Bouton de3 = new Bouton("3.png",0);
+	private Bouton de4 = new Bouton("4.png",0);
+	private Bouton de5 = new Bouton("5.png",0);
+	private Bouton de6 = new Bouton("6.png",0);
 	private Bouton bouton2 = new Bouton("2");
 	private Bouton bouton3 = new Bouton("3");
 	private Bouton bouton4 = new Bouton("4");
@@ -1308,30 +1308,6 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 		  remove(deGratuit);
 		  remove(deDouble);
 		  setContentPane(panneau);
-	}
-	
-	public static int valeurDe(){
-		int valRetour = 0;
-		if(de1.isVisible() == true){
-			valRetour = 1;
-		}
-		else if(de2.isVisible() == true){
-			valRetour = 2;
-		}
-		else if(de3.isVisible() == true){
-			valRetour = 3;
-		}
-		else if(de4.isVisible() == true){
-			valRetour = 4;
-		}
-		else if(de5.isVisible() == true){
-			valRetour = 5;
-		}
-		else if(de6.isVisible() == true){
-			valRetour = 6;
-		}
-		return valRetour;
-		
 	}
 
 	public void verifierArgentJoueur(){
