@@ -1,7 +1,5 @@
 package jeu;
 
-import java.awt.*;
-
 public class Joueur extends De {
 	
 	int argentJoueur=0;

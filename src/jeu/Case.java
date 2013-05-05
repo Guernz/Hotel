@@ -135,7 +135,7 @@ public class Case {
 		}
 	}
 	
-	//int positionJoueur = InterfaceGraphique.joueurs.get(InterfaceGraphique.joueurActif).position;
+
 	/**
 	 * Ajoute une entree sur la case renseignee en entree pour un hotel precis
 	 * On precise le nom de l'hotel pour savoir sur quel cote on la place
@@ -148,7 +148,65 @@ public class Case {
 		else{
 			Plateau.plateau.get(caseEntree).entreeInt = true;
 		}
+	}
+	
+	
+	/**
+	 * Renvoie combien d'argent le joueur courant doit payer a un autre joueur
+	 * Retourne le numero du joueur a paye et la somme due
+	 * Retourne 0;0 s'il ne doit pas payer
+	 */
+	public static int[] doitPayer(){		
+		//Recupere la position du joueurCourant
+		int positionJoueur = InterfaceGraphique.joueurs.get(InterfaceGraphique.joueurActif-1).position;
+		boolean exterieur = false;
+		int[] valRetour = {0,0}; 
+		int numeroJoueur = 0;
+		int[][] tableauLoyer = new int[6][6]; 
+		int argentAPaye = 0;
+		
+		//Verifie que la case comporte des entrees
+		if(Plateau.plateau.get(positionJoueur).entreeExt == true){
+			exterieur = true;
+		}
+		else if(Plateau.plateau.get(positionJoueur).entreeInt == true){
+			exterieur = false;
+		}
+		else{
+			return valRetour;
+		}
+		
+		//Verifie si l'hotel est possede par une autre personne que lui meme
+		ArrayList<Hotel> listeHotelCase = Hotel.trouveHotel(positionJoueur, InterfaceGraphique.hotels);
+		int hotelConcerne = 0;
+		
+		for(int i=0;i<listeHotelCase.size();i++){
+			if(listeHotelCase.get(i).emplacementExt == exterieur){
+				hotelConcerne = i;
+			}
+		}
+		if(hotelConcerne == 0){
+			return valRetour;
+		}
+		
+		if(listeHotelCase.get(hotelConcerne).joueurProprio == InterfaceGraphique.joueurActif){
+			return valRetour;
+		}
+		else{
+			//On récupère le loyer
+			numeroJoueur = listeHotelCase.get(hotelConcerne).joueurProprio;
+			tableauLoyer = listeHotelCase.get(hotelConcerne).loyer;
+			argentAPaye = tableauLoyer[listeHotelCase.get(hotelConcerne).getNbAnnexeConstruite()][InterfaceGraphique.valeurDe()];
+			valRetour[0] = numeroJoueur;
+			valRetour[1] = argentAPaye;
+		}
+		
+		return valRetour;
 		
 	}
+	
+	
+	
+	
 	
 }
