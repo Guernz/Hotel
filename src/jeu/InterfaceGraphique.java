@@ -795,7 +795,7 @@ public class InterfaceGraphique extends JFrame implements ActionListener{
 				  obtientEntree();
 			  }
 			  peuxPoserEntree = false;
-			  int tabDoitPayer[]=Case.doitPayer();
+			  int tabDoitPayer[]=Case.doitPayer(res);
 			  if(tabDoitPayer[0]==1){
 				  labelInfo.setText("<html>Vous avez fait " + res + " !" +
 				  					"<br/>Vous êtes chez le joueur " + tabDoitPayer[1] + 
